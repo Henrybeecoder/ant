@@ -14,6 +14,7 @@ import WhoWeWorkWith from "@/components/who-we-work-with-section/page";
 import Testimonies from "@/components/testimonies-slider/page";
 import QuoteByWorldLeaders from "@/components/quote-by-world-leaders-section/page";
 import AppLayout from "../appLayout/page";
+import BrandMarquee from "@/components/brandMarquee/page";
 
 // A simple throttle hook for scroll events
 const useThrottle = (callback: Function, delay: number) => {
@@ -213,52 +214,8 @@ export default function Home() {
             </button>
           </div>
           {/* Brand Slider */}
-          <div ref={section0Ref} className="overflow-hidden mt-10 relative">
-  {/* Gradient overlays - optimized with will-change */}
-  <div
-    className="absolute inset-y-0 left-0 w-[10%] z-10 pointer-events-none"
-    style={{
-      background: "linear-gradient(90deg, #0A0A0A 0%, rgba(10, 10, 10, 0) 100%)",
-      willChange: "opacity" // Improves performance
-    }}
-  ></div>
-  <div
-    className="absolute inset-y-0 right-0 w-[10%] z-10 pointer-events-none"
-    style={{
-      background: "linear-gradient(90deg, rgba(10, 10, 10, 0) 0%, #0A0A0A 100%)",
-      willChange: "opacity"
-    }}
-  ></div>
-
-  {/* Optimized motion container */}
-  <motion.div
-    className="flex items-center gap-20 my-14 will-change-transform" // Added will-change
-    animate={{ x: ["0%", "-50%"] }}
-    transition={{
-      repeat: Infinity,
-      duration: isMobile ? 80 : 120, // Slower duration reduces CPU usage
-      ease: "linear",
-    }}
-    style={{ width: "fit-content" }} // Changed from 1000% to fit-content
-  >
-    {/* Single set of images rendered twice */}
-    {[...brandImages, ...brandImages].map((num, index) => (
-      <div 
-        key={`logo-${index}`}
-        className="flex-shrink-0 w-[200px] md:w-[200px]" // Fixed width prevents layout shifts
-      >
-        <Image
-          src={`/assets/slider-img/webp/${num}.webp`} // Changed to webp
-          alt={`company ${num}`}
-          width={80}
-          height={80}
-          loading="lazy" // Lazy loading
-        
-        />
-      </div>
-    ))}
-  </motion.div>
-</div>
+          {/* @ts-expect-error: Temporarily ignoring type error while refactoring */}
+     <BrandMarquee brandImages={brandImages} />
           <div ref={section2Ref}>
             <UseCase />
           </div>

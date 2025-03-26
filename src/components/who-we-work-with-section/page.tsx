@@ -68,11 +68,11 @@ export default function WhoWeWorkWith() {
           transition={{ delay: 0.2 }}
           className="flex flex-row justify-between items-center font-[400] lg:text-[1rem] text-[#FFFFFFB2] text-[0.8rem]"
         >
-          <div className="lg:w-[40%]">
+          <div className="lg:w-[40%] w-[48%]">
             We work with founders, CEOs, and operators who don't have time for
             inefficiency.
           </div>
-          <div className="lg:w-[40%]">
+          <div className="lg:w-[40%] w-[48%]">
             Businesses that don't guess their way through growth—they engineer
             it.
           </div>

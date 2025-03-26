@@ -100,7 +100,7 @@ export default function BusinessScaleSection() {
         </div>
 
         {/* Main Content */}
-        <div className="lg:h-[800px] h-[1500px] flex lg:flex-row flex-col justify-between gap-4">
+        <div className="lg:h-[900px] h-[1500px] flex lg:flex-row flex-col justify-between gap-4">
           
           {/* Left Panel */}
           <div 
@@ -152,7 +152,7 @@ export default function BusinessScaleSection() {
           </div>
 
           {/* Right Panel */}
-          <div className="2xl:h-[800px] h-[800px] lg:w-[49%] w-full flex flex-col justify-between">
+          <div className="2xl:h-[900px] h-[800px] lg:w-[49%] w-full flex flex-col justify-between">
             
             {/* Top Right Section */}
             <div 
@@ -217,7 +217,7 @@ export default function BusinessScaleSection() {
 
             {/* Bottom Right Section */}
             <div 
-              className="lg:h-[48%] h-[350px] relative lg:mt-0 mt-4 lg:px-4 lg:py-6 pt-8 px-3 py-3 group"
+              className="lg:h-[48%] h-[450px] relative lg:mt-0 mt-4 lg:px-4 lg:py-6 pt-8 px-3 py-3 group"
               style={{
                 ...containerStyles,
                 backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('/assets/business-scale/side-bg.png')"

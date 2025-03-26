@@ -112,7 +112,7 @@ export default function ProcessSection() {
           <span className="text-[#6D6D6D] mb-1 lg:text-[0.9rem] text-[0.5rem]">
             Assessment (1-2 days)
           </span>
-          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.5rem] overflow-hidden">
+          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
             We analyze your workflow
             {/* Top Left Border */}
             <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
@@ -190,10 +190,10 @@ export default function ProcessSection() {
           variants={fadeInLeft}
           className="absolute 2xl:left-[60%] 2xl:w-[30%] cursor-pointer w-[45%]  left-[58%]  2xl:top-[33%]  top-[25%] z-40 group"
         >
-          <span className="text-[#6D6D6D] flex flex-row justify-end w-full mb-1 lg:text-[0.9rem] text-[0.5rem]">
+          <span className="text-[#6D6D6D] flex flex-row justify-end w-full mb-1 lg:text-[0.9rem] text-[0.6rem]">
             Assembly (5-10 days)
           </span>
-          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.5rem] overflow-hidden">
+          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
             We build & train your AI.
             {/* Top Left Border */}
             <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
@@ -254,7 +254,7 @@ export default function ProcessSection() {
                     />
                   </div>
                 </div>
-                <span className="flex flex-row items-center justify-center lg:text-[1.1rem] text-[0.5rem] text-[#FFFFFFB2] w-full text-center">
+                <span className="flex flex-row items-center justify-center lg:text-[1.1rem] text-[0.7rem] text-[#FFFFFFB2] w-full text-center">
                   Text
                 </span>
                 <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
@@ -295,7 +295,7 @@ export default function ProcessSection() {
                     ))}
                   </motion.div>
                 </div>
-                <span className="flex flex-row items-center justify-center lg:text-[1.1rem] text-[0.5rem] text-[#FFFFFFB2] w-full text-center">
+                <span className="flex flex-row items-center justify-center lg:text-[1.1rem] text-[0.7rem] text-[#FFFFFFB2] w-full text-center">
                   Voice
                 </span>
                 <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
@@ -420,7 +420,7 @@ export default function ProcessSection() {
                   }
                 `}</style>
 
-                <span className="flex flex-row items-center justify-center lg:text-[1.1rem] text-[0.5rem] text-[#FFFFFFB2] w-full text-center">
+                <span className="flex flex-row items-center justify-center lg:text-[1.1rem] text-[0.7rem] text-[#FFFFFFB2] w-full text-center">
                   CRMs
                 </span>
                 <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
@@ -461,7 +461,7 @@ export default function ProcessSection() {
                     }}
                   />
                 </div>
-                <span className="flex flex-row items-center justify-center lg:text-[1.1rem] text-[0.5rem] text-[#FFFFFFB2] w-full text-center">
+                <span className="flex flex-row items-center justify-center lg:text-[1.1rem] text-[0.7rem] text-[#FFFFFFB2] w-full text-center">
                   Email
                 </span>
                 <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
@@ -485,10 +485,10 @@ export default function ProcessSection() {
           variants={fadeInLeft}
           className="absolute 2xl:left-20 lg:w-[15%] left-0  lg:top-[60%] top-[46%] z-40 group"
         >
-          <span className="text-[#6D6D6D] mb-1 lg:text-[0.9rem] text-[0.5rem]">
+          <span className="text-[#6D6D6D] mb-1 lg:text-[0.9rem] text-[0.6rem]">
             Action (1-3 days)
           </span>
-          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.5rem] overflow-hidden">
+          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
             You Launch.
             {/* Top Left Border */}
             <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
@@ -525,7 +525,7 @@ export default function ProcessSection() {
             }}
             className="lg:w-[100%] w-[90%] relative lg:px-5 px-2 lg:py-6 py-3"
           >
-            <div className="text-[#FFFFFFB2] mb-5 text-center lg:text-[0.9rem] text-[0.4rem]">
+            <div className="text-[#FFFFFFB2] mb-5 text-center lg:text-[0.9rem] text-[0.6rem]">
               You just watch the results roll in.
             </div>
 
@@ -544,8 +544,8 @@ export default function ProcessSection() {
                 }}
                 className="w-full flex flex-row justify-center items-center"
               >
-                <div className="w-[80%] bg-[#151515] flex flex-row justify-center items-center relative py-2 px-4 font-[500]">
-                  <img src="/assets/process/wallet.svg" alt="icon" />
+                <div className="lg:w-[80%] w-[100%] bg-[#151515] flex flex-row justify-center items-center relative py-2 lg:px-4 px-2 font-[500]">
+                  <img src="/assets/process/wallet.svg" alt="icon" className="lg:w-6 lg:h-6 w-4 h-4" />
                   <p className="ml-2 lg:text-[0.9rem] text-[0.5rem]">
                     No salaries
                   </p>
@@ -570,8 +570,8 @@ export default function ProcessSection() {
                 }}
                 className="w-full mt-2 flex flex-row justify-center items-center"
               >
-                <div className="w-[80%] bg-[#151515] flex flex-row justify-center items-center relative py-2 px-4 font-[500]">
-                  <img src="/assets/process/sick.svg" alt="icon" />
+                <div className="lg:w-[80%] w-[100%] bg-[#151515] flex flex-row justify-center items-center relative py-2 lg:px-4 px-2 font-[500]">
+                  <img src="/assets/process/sick.svg" alt="icon"  className="lg:w-6 lg:h-6 w-4 h-4" />
                   <p className="ml-2 lg:text-[0.9rem] text-[0.5rem]">
                     No Sick days
                   </p>
@@ -596,8 +596,8 @@ export default function ProcessSection() {
                 }}
                 className="w-full flex mt-2 flex-row justify-center items-center"
               >
-                <div className="w-[80%] bg-[#151515] flex flex-row justify-center items-center relative py-2 px-4 font-[500]">
-                  <img src="/assets/process/up.svg" alt="icon" />
+                <div className="lg:w-[80%] w-[100%] bg-[#151515] flex flex-row justify-center items-center relative py-2 lg:px-4 px-2 font-[500]">
+                  <img src="/assets/process/up.svg" alt="icon"  className="lg:w-6 lg:h-6 w-4 h-4" />
                   <p className="ml-2 lg:text-[0.9rem] text-[0.5rem]">
                     No ‘I forgot to follow up’
                   </p>

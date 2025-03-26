@@ -70,7 +70,7 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
   quantity={isMobile ? 300 : 500}
   ease={80}
   color={"white"}
-  refresh
+  
 />
       )}
     

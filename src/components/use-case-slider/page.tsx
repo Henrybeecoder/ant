@@ -14,7 +14,7 @@ const UseCase = () => {
     const updateSlideWidth = () => {
       if (sliderRef.current) {
         const isMobile = window.innerWidth <= 768;
-        slideWidthRef.current = isMobile ? 95 : 50;
+        slideWidthRef.current = isMobile ? 100 : 50;
       }
     };
 
@@ -107,7 +107,7 @@ const UseCase = () => {
           {useCasesSlides?.map((slide, index) => (
             <div
               key={index}
-              className="lg:w-[50%] w-[95%] lg:h-[550px] h-[440px] flex-shrink-0 bg-[#291310] text-[#FF4733] lg:py-14 py-8 lg:px-10 px-8 mr-6"
+              className="lg:w-[50%] w-[100%] lg:h-[550px] h-[440px] flex-shrink-0 bg-[#291310] text-[#FF4733] lg:py-14 py-8 lg:px-10 px-8 mr-6"
               style={{
                 clipPath: "polygon(0 0, 100% 0, 100% 100%, 19% 100%, 0 84%)",
               }}

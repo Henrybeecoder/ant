@@ -214,7 +214,7 @@ export default function ProcessSection() {
           initial="hidden"
           animate={isWorksInView ? "visible" : "hidden"}
           variants={fadeInRight}
-          className="absolute lg:w-[50%] w-[40%] 2xl:left-[-9%] left-0   top-[17%]  2xl:top-[23%]  z-40"
+          className="absolute lg:w-[50%] w-[47%] 2xl:left-[-9%] left-[-3%]   top-[17%]  2xl:top-[23%]  z-40"
         >
           <div
             style={{
@@ -230,18 +230,18 @@ export default function ProcessSection() {
                 0px 195px 78px 0px #00000003,
                 0px 305px 85px 0px #00000000`,
             }}
-            className="lg:w-full  urbanist w-[100%] relative lg:px-5 px-2 lg:py-6 py-2"
+            className="lg:w-full  urbanist w-[100%] relative lg:px-5 px-1 lg:py-6 py-2"
           >
             <span className="urbanist text-[1.2rem] mb-6"> Works in</span>
-            <div className="w-[100%] flex 2xl:min-h-[100px] min-h-[40px] flex-row justify-between">
+            <div className="w-[100%] flex 2xl:h-[120px] lg:mt-2 mt-1 h-[60px] flex-row justify-between">
               {/* First Container */}
-              <div className="w-[55%] relative min-h-full bg-[#20202080] px-3 py-4">
+              <div className="w-[55%] relative min-h-full  bg-[#20202080] lg:px-3 px-1 lg:py-4 py-2">
                 <div className="w-full">
                   <div className="w-[70%]">
                     <img
                       src="/assets/process/text1.svg"
                       alt="works-in"
-                      className="w-full h-full"
+                      className="w-full h-[8px] lg:h-full"
                     />
                   </div>
                 </div>
@@ -264,7 +264,7 @@ export default function ProcessSection() {
               </div>
 
               {/* Second Container - Sound Wavelengths */}
-              <div className="w-[42%] relative min-h-full bg-[#20202080] px-3 py-4">
+              <div className="w-[42%] relative min-h-full bg-[#20202080] lg:px-3 px-1 lg:py-4 py-2">
                 <div className="w-full flex items-center justify-center lg:h-[80%] h-[50%]">
                   <motion.div
                     className="flex space-x-1"
@@ -305,17 +305,17 @@ export default function ProcessSection() {
               </div>
             </div>
 
-            <div className="w-[100%] flex 2xl:min-h-[100px] min-h-[30px] mt-3 flex-row justify-between">
+            <div className="w-[100%] flex 2xl:h-[120px] h-[80px] mt-3 flex-row justify-between">
               {/* First Container */}
-              <div className="w-[42%] relative min-h-full bg-[#20202080] px-3 py-4">
+              <div className="w-[42%] relative min-h-full bg-[#20202080] lg:px-3 px-1 lg:py-4 py-2">
                 <div className="w-full">
-                  <div className="bg-[#20202080] relative flex flex-row justify-center items-center py-3 lg:px-5 px-2">
+                  <div className="bg-[#20202080] relative flex flex-row justify-center items-center lg:py-3 py-1 lg:px-5 px-2">
                     <img
                       src="/assets/process/users.svg"
                       alt="works-in"
                       className="w-[10px] h-[10px]"
                     />
-                    <p className="font-[400] lg:text-[0.9rem] text-[0.3rem] ml-3">
+                    <p className="font-[400] lg:text-[0.9rem] text-[0.4rem] lg:ml-3 ml-1">
                       Collaborative
                     </p>
                     <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
@@ -327,7 +327,7 @@ export default function ProcessSection() {
                 <div className="w-full overflow-hidden whitespace-nowrap">
                   <div className="inline-block animate-marquee mt-3">
                     {/* First Set of Items */}
-                    <div className="inline-block mr-4 text-[0.8rem] relative bg-[#20202080] px-2 py-2">
+                    <div className="inline-block mr-4 lg:text-[0.9rem] text-[0.4rem] relative bg-[#20202080] lg:px-2 lg:py-2 px-1 py-1">
                       <img
                         src="/assets/process/users.svg"
                         alt="icon1"
@@ -339,7 +339,7 @@ export default function ProcessSection() {
                       <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                       <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                     </div>
-                    <div className="inline-block mr-4 text-[0.8rem] relative bg-[#20202080] px-2 py-2">
+                    <div className="inline-block mr-4 lg:text-[0.9rem] text-[0.4rem] relative bg-[#20202080] lg:px-2 lg:py-2 px-1 py-1">
                       <img
                         src="/assets/process/analytics.svg"
                         alt="icon1"
@@ -351,7 +351,7 @@ export default function ProcessSection() {
                       <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                       <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                     </div>
-                    <div className="inline-block mr-4 text-[0.8rem] relative bg-[#20202080] px-2 py-2">
+                    <div className="inline-block mr-4 lg:text-[0.9rem] text-[0.4rem] relative bg-[#20202080] lg:px-2 lg:py-2 px-1 py-1">
                       <img
                         src="/assets/process/users.svg"
                         alt="icon1"
@@ -363,7 +363,7 @@ export default function ProcessSection() {
                       <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                       <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                     </div>
-                    <div className="inline-block mr-4 text-[0.8rem] relative bg-[#20202080] px-2 py-2">
+                    <div className="inline-block mr-4 lg:text-[0.9rem] text-[0.4rem] relative bg-[#20202080] lg:px-2 lg:py-2 px-1 py-1">
                       <img
                         src="/assets/process/analytics.svg"
                         alt="icon1"
@@ -375,7 +375,7 @@ export default function ProcessSection() {
                       <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                       <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                     </div>
-                    <div className="inline-block mr-4 text-[0.8rem] relative bg-[#20202080] px-2 py-2">
+                    <div className="inline-block mr-4 lg:text-[0.9rem] text-[0.4rem] relative bg-[#20202080] lg:px-2 lg:py-2 px-1 py-1">
                       <img
                         src="/assets/process/users.svg"
                         alt="icon1"
@@ -389,7 +389,7 @@ export default function ProcessSection() {
                       <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                       <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                     </div>
-                    <div className="inline-block mr-4 text-[0.8rem] relative bg-[#20202080] px-2 py-2">
+                    <div className="inline-block mr-4 lg:text-[0.9rem] text-[0.4rem] relative bg-[#20202080] lg:px-2 lg:py-2 px-1 py-1">
                       <img
                         src="/assets/process/analytics.svg"
                         alt="icon1"
@@ -430,7 +430,7 @@ export default function ProcessSection() {
               </div>
 
               {/* Second Container - Sound Wavelengths */}
-              <div className="w-[55%] relative min-h-full bg-[#20202080] px-3 py-4">
+              <div className="w-[55%] relative min-h-full bg-[#20202080] lg:px-3 px-1 lg:py-4 py-2">
                 <div className="w-full flex items-center justify-center h-[80%] relative">
                   <img
                     src="/assets/process/message.svg"

@@ -67,7 +67,7 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
       {!isMobile && (
   <Particles
   className="absolute inset-0 z-0"
-  quantity={isMobile ? 300 : 500}
+  quantity={isMobile ? 300 : 400}
   ease={80}
   color={"white"}
   

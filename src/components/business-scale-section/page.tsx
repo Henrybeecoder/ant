@@ -319,8 +319,8 @@ export default function BusinessScaleSection() {
         </div>
 
         {/* Footer Text */}
-        <div className="lg:mt-[-40px] mt-0 w-full min-h-[200px] flex lg:flex-row flex-col justify-between gap-4">
-          <div className="lg:w-[49%] w-full h-full">
+        <div className="lg:mt-[-40px] mt-0 w-full min-h-[200px] flex lg:flex-row  justify-between gap-4">
+          <div className="lg:w-[49%] w-full h-full lg:text-[1rem] text-[0.7rem]">
             <div className="w-full flex justify-end">
               <div className="lg:w-[80%] w-full font-normal text-base text-white lg:pr-8 pr-0 mt-8">
                 <p className="text-[#FFFFFFB2]">Your team should be closing deals, not chasing admin work.</p>
@@ -329,7 +329,7 @@ export default function BusinessScaleSection() {
             </div>
           </div>
 
-          <div className="lg:w-[49%] w-full h-full">
+          <div className="lg:w-[49%] w-full h-full lg:text-[1rem] text-[0.7rem]">
             <div className="lg:w-[65%] w-full mt-8 font-normal text-base text-white lg:pl-4 pl-0">
               <p className="text-[#FFFFFFB2]">Your business should be scaling, not stalling.</p>
               <p className="mt-5">AI agents fix all of this. You ready?</p>

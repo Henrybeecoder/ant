@@ -85,7 +85,7 @@ export default function WhoWeWorkWith() {
           initial="hidden"
           animate={section2InView ? "visible" : "hidden"}
           variants={fadeIn}
-          className="lg:w-[40%] w-[48%] font-[500] lg:text-[1.3rem]"
+          className="lg:w-[40%] w-[46%] font-[500] lg:text-[2rem] text-[1.2rem]"
         >
           We Don't Work With
         </motion.div>
@@ -95,7 +95,7 @@ export default function WhoWeWorkWith() {
           animate={section2InView ? "visible" : "hidden"}
           variants={fadeIn}
           transition={{ delay: 0.1 }}
-          className="lg:w-[50%] w-[48%] border-l-[0.5px] lg:text-[1rem] text-[0.6rem] border-[#FFFFFFB2] pl-3 lg:pl-10 my-5"
+          className="lg:w-[50%] w-[49%] border-l-[0.5px] lg:text-[1rem] text-[0.6rem] border-[#FFFFFFB2] pl-3 lg:pl-10 my-5"
         >
           {dontWorkWithItems.map((item, index) => (
             <div key={index} className="flex flex-row mt-3 first:mt-0">
@@ -105,7 +105,7 @@ export default function WhoWeWorkWith() {
                 className="mr-4 w-4 h-4" 
                 loading="lazy"
               />
-              <p className="text-start">{item}</p>
+              <p className="text-start lg:text-[1.1rem] text-[0.75rem]">{item}</p>
             </div>
           ))}
         </motion.div>
@@ -117,7 +117,7 @@ export default function WhoWeWorkWith() {
           initial="hidden"
           animate={section3InView ? "visible" : "hidden"}
           variants={fadeIn}
-          className="lg:w-[50%] w-[48%] font-[500] lg:text-[1.3rem] text-end"
+          className="lg:w-[50%] w-[48%] font-[500] lg:text-[2rem] text-[1.2rem] text-end"
         >
           We Work With
         </motion.div>
@@ -137,7 +137,7 @@ export default function WhoWeWorkWith() {
                 className="mr-4 w-4 h-4" 
                 loading="lazy"
               />
-              <p className="text-start">{item}</p>
+              <p className="text-start lg:text-[1.1rem] text-[0.75rem]">{item}</p>
             </div>
           ))}
         </motion.div>

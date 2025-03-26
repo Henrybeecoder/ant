@@ -6,21 +6,23 @@ const UseCase = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [startX, setStartX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   const slideWidthRef = useRef<number>(0);
 
-  // Update slide width reference on resize and initial render
+  // Update slide width and mobile detection
   useEffect(() => {
-    const updateSlideWidth = () => {
+    const updateDimensions = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
       if (sliderRef.current) {
-        const isMobile = window.innerWidth <= 768;
-        slideWidthRef.current = isMobile ? 100 : 50;
+        slideWidthRef.current = mobile ? 100 : 50; // 100% width on mobile, 50% on desktop
       }
     };
 
-    updateSlideWidth();
-    window.addEventListener('resize', updateSlideWidth);
-    return () => window.removeEventListener('resize', updateSlideWidth);
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
   const handleNextSlide = () => {
@@ -46,7 +48,6 @@ const UseCase = () => {
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
     const diff = startX - clientX;
     
-    // Prevent page scroll when dragging
     if (Math.abs(diff) > 5) {
       e.preventDefault();
     }
@@ -60,7 +61,6 @@ const UseCase = () => {
       (e as React.MouseEvent).clientX;
     const diff = startX - clientX;
     
-    // Threshold for swipe detection
     if (diff > 50) {
       handleNextSlide();
     } else if (diff < -50) {
@@ -69,14 +69,6 @@ const UseCase = () => {
     
     setIsDragging(false);
   };
-
-  // Auto-advance slides (optional)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNextSlide();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
 
   return (
     <>
@@ -107,7 +99,7 @@ const UseCase = () => {
           {useCasesSlides?.map((slide, index) => (
             <div
               key={index}
-              className="lg:w-[50%] w-[100%] lg:h-[550px] h-[440px] flex-shrink-0 bg-[#291310] text-[#FF4733] lg:py-14 py-8 lg:px-10 px-8 mr-6"
+              className={`${isMobile ? 'w-full' : 'w-[50%]'} h-[440px] lg:h-[550px] flex-shrink-0 bg-[#291310] text-[#FF4733] lg:py-14 py-8 lg:px-10 px-8 ${!isMobile ? 'mr-6' : ''}`}
               style={{
                 clipPath: "polygon(0 0, 100% 0, 100% 100%, 19% 100%, 0 84%)",
               }}

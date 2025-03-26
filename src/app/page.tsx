@@ -268,7 +268,7 @@ const SectionLines: React.FC<SectionLinesProps> = ({
 
   return (
     <div
-      className={`fixed top-0 left-0 ${isHovered ? "h-full" : "h-0"} ${isHovered ? "w-full" : "w-[30%]"} z-50`}
+      className={`fixed top-0 bg-red-500 left-0 ${isHovered ? "h-full" : "h-0"} ${isHovered ? "w-full" : "w-[30%]"} z-50`}
       style={{
         backdropFilter: isMobile ? "none" : isHovered ? "blur(20px)" : "none",
         backgroundColor: isMobile ? "transparent" : isHovered ? "#000000A3" : "transparent",
@@ -279,10 +279,11 @@ const SectionLines: React.FC<SectionLinesProps> = ({
         style={{
           zIndex: "300",
           marginLeft: windowWidth >= 2116 ? "400px" : "250px",
-          marginTop: "130px",
+          marginTop: "60%",
           width: "100%",
           display: windowWidth >= 1024 ? "block" : "none",
           height: "100vh",
+        
         }}
       >
         {sectionNames.map((name, index) => (

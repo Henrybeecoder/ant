@@ -217,7 +217,7 @@ export default function BusinessScaleSection() {
 
             {/* Bottom Right Section */}
             <div 
-              className="lg:h-[48%] h-[450px] relative lg:mt-0 mt-4 lg:px-4 lg:py-6 pt-8 px-3 py-3 group"
+              className="lg:h-[48%] h-[500px] relative lg:mt-0 mt-4 lg:px-4 lg:py-6 pt-8 px-3 py-3 group"
               style={{
                 ...containerStyles,
                 backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('/assets/business-scale/side-bg.png')"

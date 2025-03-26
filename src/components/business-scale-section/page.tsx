@@ -100,7 +100,7 @@ export default function BusinessScaleSection() {
         </div>
 
         {/* Main Content */}
-        <div className="lg:h-[900px] h-[1500px] flex lg:flex-row flex-col justify-between gap-4">
+        <div className="lg:h-[900px] h-[1600px] flex lg:flex-row flex-col justify-between gap-4">
           
           {/* Left Panel */}
           <div 
@@ -152,7 +152,7 @@ export default function BusinessScaleSection() {
           </div>
 
           {/* Right Panel */}
-          <div className="2xl:h-[900px] h-[800px] lg:w-[49%] w-full flex flex-col justify-between">
+          <div className="2xl:h-[900px] min-h-[800px] lg:w-[49%] w-full flex flex-col justify-between">
             
             {/* Top Right Section */}
             <div 

@@ -278,7 +278,7 @@ export default function BusinessScaleSection() {
               </div>
               <div className="w-full h-[70%] flex items-center justify-center">
                 <img 
-                  src="/assets/business-scale/move.svg" 
+                  src="/assets/business-scale/move.webp" 
                   alt="" 
                   className="w-full h-full" 
                   loading="lazy"

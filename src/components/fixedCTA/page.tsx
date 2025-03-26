@@ -14,7 +14,7 @@ export default function FixedCTA(){
       >
         <Image src="/assets/icons/logo.svg" alt="" width={30} height={15} />
         <button className="bg-[#4101F6] text-white font-[600] text-[1rem] flex flex-row px-1 py-1 cursor-pointer hover:bg-[#2e00b3] transition-all">
-          <Image src="/assets/images/ose.svg" alt="" width={50} height={50} />
+          <Image src="/assets/images/ose.webp" alt="" width={50} height={50} />
           <div className="text-[#FFFFFF] h-full flex flex-col justify-center items-center mx-3">
             <p className="font-[600] lg:text-[1rem] text-[0.8rem]">
               Book a call with Ose (founder)

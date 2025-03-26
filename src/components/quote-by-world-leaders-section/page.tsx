@@ -6,7 +6,7 @@ export default function QuoteByWorldLeaders () {
         <div className="lg:w-[60%] w-[49%]">
           <AiTalks
             authorPosition={"CEO of Microsoft"}
-            authorImage={"/assets/quotes/satya.png"}
+            authorImage={"/assets/quotes/satya.webp"}
             author={"Satya Nadella"}
             description="AI agents will become the primary way we interact with computers in the future. "
           />
@@ -15,7 +15,7 @@ export default function QuoteByWorldLeaders () {
         <div className="lg:w-[38%] w-[49%]">
           <AiTalks
             authorPosition={"CEO of Google"}
-            authorImage={"/assets/quotes/sundar.png"}
+            authorImage={"/assets/quotes/sundar.webp"}
             author={"Sundar Pichai"}
             description="AI is one of the most profound things we’re working on as humanity."
           />
@@ -25,7 +25,7 @@ export default function QuoteByWorldLeaders () {
         <div className="lg:w-[38%] w-[49%]">
           <AiTalks
             authorPosition={"CEO of Tesla, SpaceX "}
-            authorImage={"/assets/quotes/elon.png"}
+            authorImage={"/assets/quotes/elon.webp"}
             author={"Elon Musk"}
             description="AI is going to change everything, but it’s going to be a partnership between humans and AI, not a competition."
           />
@@ -33,7 +33,7 @@ export default function QuoteByWorldLeaders () {
         <div className="lg:w-[60%] w-[49%]">
           <AiTalks
             authorPosition={"Founder of Spanx"}
-            authorImage={"/assets/quotes/sara.png"}
+            authorImage={"/assets/quotes/sara.webp"}
             author={"Sara Blakely"}
             description="AI is like having a super-smart assistant that never sleeps"
           />
@@ -48,7 +48,7 @@ export default function QuoteByWorldLeaders () {
         <div className="lg:w-[60%] w-[49%]">
           <AiTalks
             authorPosition={"CEO of NVIDIA"}
-            authorImage={"/assets/quotes/jensen.png"}
+            authorImage={"/assets/quotes/jensen.webp"}
             author={"Jensen Huang"}
             description="AI is going to be the biggest game-changer in the next decade. It will redefine how businesses operate and how we solve the world's biggest challenges."
           />
@@ -56,7 +56,7 @@ export default function QuoteByWorldLeaders () {
         <div className="lg:w-[38%] w-[49%]">
           <AiTalks
             authorPosition={"Founder of Amazon"}
-            authorImage={"/assets/quotes/jeff.png"}
+            authorImage={"/assets/quotes/jeff.webp"}
             author={"Jeff Bezos"}
             description="It’s hard to overstate how big of an impact AI and machine learning will have on society ."
           />
@@ -67,7 +67,7 @@ export default function QuoteByWorldLeaders () {
         <div className="lg:w-[60%] w-[49%]">
           <AiTalks
             authorPosition={"CEO of Meta"}
-            authorImage={"/assets/quotes/mark.png"}
+            authorImage={"/assets/quotes/mark.webp"}
             author={"Mark Zuckerberg"}
             description="Advances in AI are making it possible to do more with less, and that’s going to improve the quality of life for billions of people."
           />
@@ -75,7 +75,7 @@ export default function QuoteByWorldLeaders () {
         <div className="lg:w-[38%] w-[49%]">
           <AiTalks
             authorPosition={"CEO of Apple"}
-            authorImage={"/assets/quotes/tim.png"}
+            authorImage={"/assets/quotes/tim.webp"}
             author={"Tim Cook"}
             description="AI is a fundamental technology that will be woven into the fabric of how we live and work."
           />

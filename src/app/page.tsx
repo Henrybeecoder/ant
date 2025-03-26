@@ -201,7 +201,7 @@ export default function Home() {
           </p>
           <div className="w-full flex flex-row cursor-pointer justify-center mt-8">
             <button className="bg-[#4101F6] text-white font-[600] text-[1rem] flex flex-row px-1 py-1 cursor-pointer hover:bg-[#2e00b3] transition-all">
-              <Image src="/assets/images/ose.svg" alt="" width={50} height={50} />
+              <Image src="/assets/images/ose.webp" alt="" width={50} height={50} />
               <div className="text-[#FFFFFF] h-full flex flex-col justify-center items-center mx-3">
                 <p className="font-[600] lg:text-[1rem] text-[0.8rem]">
                   Book a call with Ose (founder)
@@ -214,54 +214,51 @@ export default function Home() {
           </div>
           {/* Brand Slider */}
           <div ref={section0Ref} className="overflow-hidden mt-10 relative">
-            <div
-              className="absolute inset-y-0 left-0 w-[10%] z-10"
-              style={{
-                background: "linear-gradient(90deg, #0A0A0A 0%, rgba(10, 10, 10, 0) 100%)",
-              }}
-            ></div>
-            <div
-              className="absolute inset-y-0 right-0 w-[10%] z-10"
-              style={{
-                background: "linear-gradient(90deg, rgba(10, 10, 10, 0) 0%, #0A0A0A 100%)",
-              }}
-            ></div>
-            <motion.div
-              className="flex items-center gap-20 my-14"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                repeat: Infinity,
-                duration: isMobile ? 60 : 90,
-                ease: "linear",
-              }}
-              style={{ width: "1000%" }}
-            >
-              <div className="flex items-center gap-28">
-                {brandImages.map((num, index) => (
-                  <Image
-                    key={index}
-                    src={`/assets/slider-img/${num}.svg`}
-                    alt={`company${num}`}
-                    className="w-full h-full"
-                    width={300}
-                    height={53}
-                  />
-                ))}
-              </div>
-              <div className="flex items-center gap-28">
-                {brandImages.map((num, index) => (
-                  <Image
-                    key={`${index}`}
-                    src={`/assets/slider-img/${num}.svg`}
-                    className="w-full h-full"
-                    alt={`company${num}`}
-                    width={300}
-                    height={53}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          </div>
+  {/* Gradient overlays - optimized with will-change */}
+  <div
+    className="absolute inset-y-0 left-0 w-[10%] z-10 pointer-events-none"
+    style={{
+      background: "linear-gradient(90deg, #0A0A0A 0%, rgba(10, 10, 10, 0) 100%)",
+      willChange: "opacity" // Improves performance
+    }}
+  ></div>
+  <div
+    className="absolute inset-y-0 right-0 w-[10%] z-10 pointer-events-none"
+    style={{
+      background: "linear-gradient(90deg, rgba(10, 10, 10, 0) 0%, #0A0A0A 100%)",
+      willChange: "opacity"
+    }}
+  ></div>
+
+  {/* Optimized motion container */}
+  <motion.div
+    className="flex items-center gap-20 my-14 will-change-transform" // Added will-change
+    animate={{ x: ["0%", "-50%"] }}
+    transition={{
+      repeat: Infinity,
+      duration: isMobile ? 80 : 120, // Slower duration reduces CPU usage
+      ease: "linear",
+    }}
+    style={{ width: "fit-content" }} // Changed from 1000% to fit-content
+  >
+    {/* Single set of images rendered twice */}
+    {[...brandImages, ...brandImages].map((num, index) => (
+      <div 
+        key={`logo-${index}`}
+        className="flex-shrink-0 w-[200px] md:w-[200px]" // Fixed width prevents layout shifts
+      >
+        <Image
+          src={`/assets/slider-img/webp/${num}.webp`} // Changed to webp
+          alt={`company ${num}`}
+          width={80}
+          height={80}
+          loading="lazy" // Lazy loading
+        
+        />
+      </div>
+    ))}
+  </motion.div>
+</div>
           <div ref={section2Ref}>
             <UseCase />
           </div>

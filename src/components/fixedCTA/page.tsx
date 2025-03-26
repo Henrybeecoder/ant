@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function FixedCTA(){
   return (
-    <div className="flex flex-row justify-center z-100 items-center w-full fixed lg:bottom-10 bottom-0">
+    <div className="flex flex-row justify-center w-full z-100 items-center  fixed lg:bottom-4 bottom-0">
       <div
         style={{
           background:

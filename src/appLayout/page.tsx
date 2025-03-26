@@ -113,9 +113,10 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
           )}
           {children}
         </div>
-        {/* Fixed Bottom Bar */}
-        {showFixedBar && <FixedCTA />}
+       
       </motion.div>
+       {/* Fixed Bottom Bar */}
+       {showFixedBar && <FixedCTA />}
     </div>
   );
 }

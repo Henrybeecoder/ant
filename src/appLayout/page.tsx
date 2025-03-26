@@ -64,13 +64,13 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
   return (
     <div className="w-full min-h-[300vh] bg-[#0A0A0A] flex flex-row overflow-hidden relative">
       {/* Particles Background */}
-      <Particles
+      {/* <Particles
         className="absolute inset-0 z-0"
         quantity={isMobile ? 300 : 600}
         ease={80}
         color={"white"}
         refresh
-      />
+      /> */}
 
       {/* Sidebar */}
       <Sidebar controls={controls} logoAnimation={logoAnimation} sidebarAnimation={sidebarAnimation} />

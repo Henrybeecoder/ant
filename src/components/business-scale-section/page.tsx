@@ -191,7 +191,10 @@ export default function BusinessScaleSection() {
                       {isPlaying ? "Stop Music" : "Tap to Listen"}
                     </p>
                   </div>
-                  <AnimatedBorder />
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
+        <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
+        <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
+        <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
                 </motion.button>
               </div>
 

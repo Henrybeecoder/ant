@@ -279,7 +279,7 @@ const SectionLines: React.FC<SectionLinesProps> = ({
         style={{
           zIndex: "300",
           marginLeft: windowWidth >= 2116 ? "400px" : "250px",
-          marginTop: "60%",
+          marginTop: "200px",
           width: "100%",
           display: windowWidth >= 1024 ? "block" : "none",
           height: "100vh",
@@ -327,7 +327,20 @@ const SectionLines: React.FC<SectionLinesProps> = ({
                 {name}
               </motion.div>
             </div>
-            <motion.div className="w-[30px] h-[1px] cursor-pointer" style={{ backgroundColor: "#444444" }}></motion.div>
+            <motion.div className="w-[30px] h-[1px] cursor-pointer" style={{ backgroundColor: "#444444" }}  animate={{
+                  width:
+                    isHovered && currentSection !== index
+                      ? "70px"
+                      : isHovered && currentSection === index
+                      ? "70px"
+                      : currentSection === index
+                      ? "50px"
+                      : "30px",
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                onClick={() => scrollToSection(sectionRefs[index])}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}></motion.div>
             <motion.div className="w-[30px] h-[1px] mt-3 cursor-pointer" style={{ backgroundColor: "#444444" }}></motion.div>
           </div>
         ))}

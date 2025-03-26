@@ -12,7 +12,7 @@ const BrandMarquee = ({ brandImages }: { brandImages: string[] }) => {
   // Increased spacing values
   const imageWidth = isMobile ? 120 : 100;
   const imageHeight = 40;
-  const gap = isMobile ? 80 : 120; // Increased from 40/60 to 80/120
+  const gap = isMobile ? 30 : 120; // Increased from 40/60 to 80/120
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -37,7 +37,8 @@ const BrandMarquee = ({ brandImages }: { brandImages: string[] }) => {
   }, [isMobile, controls, totalWidth]);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden py-10 w-full my-22">
+    <div className='flex flex-row w-full justify-center items-center my-22'>
+  <div ref={containerRef} className="relative overflow-hidden py-10 lg:w-full   ">
       <motion.div
         className="flex items-center"
         animate={controls}
@@ -96,6 +97,8 @@ const BrandMarquee = ({ brandImages }: { brandImages: string[] }) => {
         ))}
       </motion.div>
     </div>
+    </div>
+  
   );
 };
 

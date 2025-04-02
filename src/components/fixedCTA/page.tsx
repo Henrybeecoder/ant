@@ -34,7 +34,7 @@ export default function FixedCTA() {
         >
           <div className="relative w-[50px] h-[50px]">
             <Image 
-              src="/assets/images/ose.webp" 
+              src="/assets/images/ose.png" 
               alt="Ose portrait" 
               fill
               className="object-cover"

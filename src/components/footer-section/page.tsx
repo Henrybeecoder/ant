@@ -3,9 +3,9 @@ import { useRef } from "react";
 
 export default function Footer() {
   const socials = [
-    { name: "Facebook", link: "https://www.facebook.com" },
-    { name: "Twitter", link: "https://www.twitter.com" },
-    { name: "LinkedIn", link: "https://www.linkedin.com" },
+    { name: "Facebook", link: "https://www.facebook.com/share/1DLiRavTmo/?mibextid=wwXIfr" },
+    { name: "Twitter", link: "https://x.com/alpha_next_tech?s=21" },
+    { name: "LinkedIn", link: "https://www.linkedin.com/company/alpha-next-tech/" },
   ];
   const legals = [
     { name: "Privacy Policy", link: "/privacy-policy" },
@@ -179,7 +179,7 @@ export default function Footer() {
             </div>
             <div className="w-[50%] flex flex-row justify-end text-end">
               <motion.a
-                href={'#'}
+                href={'https://www.instagram.com/alphanexttech?igsh=MWdlYmx5ZHFzdzhpaw=='}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full cursor-pointer lg:text-[1rem] text-[0.9rem] text-[#ffffff] font-[400]"
@@ -240,8 +240,7 @@ export default function Footer() {
             <div className="w-[50%] flex flex-row text-[#FFFFFFB2] justify-start"></div>
             <motion.a
               href={legal.link}
-              target="_blank"
-              rel="noopener noreferrer"
+           
               className="w-[30%] cursor-pointer flex flex-row justify-end text-end"
               whileHover={{ textDecoration: 'underline' }}
               transition={{ type: "spring", stiffness: 300 }}

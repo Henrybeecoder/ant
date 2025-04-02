@@ -75,10 +75,10 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
       )}
     
 
-      {/* Sidebar */}
+   
       <Sidebar controls={controls} logoAnimation={logoAnimation} sidebarAnimation={sidebarAnimation} />
 
-      {/* Main Content */}
+   
       <motion.div
         className="lg:w-[90%] w-[100%] min-h-full relative z-50 text-[#FFFFFF] lg:px-4 px-4 lg:ml-[10%] ml-0"
         initial="hidden"

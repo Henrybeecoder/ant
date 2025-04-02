@@ -112,7 +112,7 @@ export default function ProcessSection() {
           <span className="text-[#6D6D6D] mb-1 lg:text-[0.9rem] text-[0.5rem]">
             Assessment (1-2 days)
           </span>
-          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
+          <div className="bg-[#151515] relative py-3 text-center px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
             We analyze your workflow
             {/* Top Left Border */}
             <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
@@ -149,7 +149,7 @@ export default function ProcessSection() {
                 <span className="text-[#6D6D6D] mb-1 lg:text-[0.8rem] text-[0.5rem]">
                   Client
                 </span>
-                <div className="bg-[#151515] relative py-3 lg:px-4 px-1 font-[500]">
+                <div className="bg-[#151515] text-center relative py-3 lg:px-4 px-1 font-[500]">
                   Leads are slipping, and my team is buried in follow ups.
                   <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                   <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
@@ -167,7 +167,7 @@ export default function ProcessSection() {
                 <span className="text-[#6D6D6D] lg:text-[0.8rem] text-[0.5rem]">
                   Alphanextech
                 </span>
-                <div className="bg-[#151515] relative py-3 lg:px-4 px-1 font-[500]">
+                <div className="bg-[#151515]  text-center relative py-3 lg:px-4 px-1 font-[500]">
                   Yep, scattered workflows kill efficiency.
                   <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                   <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
@@ -193,7 +193,7 @@ export default function ProcessSection() {
           <span className="text-[#6D6D6D] flex flex-row justify-end w-full mb-1 lg:text-[0.9rem] text-[0.6rem]">
             Assembly (5-10 days)
           </span>
-          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
+          <div className="bg-[#151515]  text-center relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
             We build & train your AI.
             {/* Top Left Border */}
             <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
@@ -232,7 +232,7 @@ export default function ProcessSection() {
             }}
             className="lg:w-full  urbanist w-[100%] relative lg:px-5 px-1 lg:py-6 py-2"
           >
-            <span className="urbanist text-[1.2rem] mb-6"> Works in</span>
+            <span className="urbanist text-[#6D6D6D]  text-[1.2rem] mb-6"> Works in</span>
             <div className="w-[100%] flex 2xl:h-[120px] lg:mt-2 mt-1 h-[60px] flex-row justify-between">
               {/* First Container */}
               <div className="w-[55%] relative min-h-full  bg-[#20202080] lg:px-3 px-1 lg:py-4 py-2">
@@ -488,7 +488,7 @@ export default function ProcessSection() {
           <span className="text-[#6D6D6D] mb-1 lg:text-[0.9rem] text-[0.6rem]">
             Action (1-3 days)
           </span>
-          <div className="bg-[#151515] relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
+          <div className="bg-[#151515] text-center relative py-3 px-4 font-[500] lg:text-[1rem] text-[0.7rem] overflow-hidden">
             You Launch.
             {/* Top Left Border */}
             <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
@@ -571,7 +571,7 @@ export default function ProcessSection() {
                 className="w-full mt-2 flex flex-row justify-center items-center"
               >
                 <div className="lg:w-[80%] w-[100%] bg-[#151515] flex flex-row justify-center items-center relative py-2 lg:px-4 px-2 font-[500]">
-                  <img src="/assets/process/sick.svg" alt="icon"  className="lg:w-6 lg:h-6 w-4 h-4" />
+                  <img src="/assets/process/sick.svg" alt="icon" className="lg:w-6 lg:h-6 w-4 h-4" />
                   <p className="ml-2 lg:text-[0.9rem] text-[0.5rem]">
                     No Sick days
                   </p>
@@ -597,7 +597,7 @@ export default function ProcessSection() {
                 className="w-full flex mt-2 flex-row justify-center items-center"
               >
                 <div className="lg:w-[80%] w-[100%] bg-[#151515] flex flex-row justify-center items-center relative py-2 lg:px-4 px-2 font-[500]">
-                  <img src="/assets/process/up.svg" alt="icon"  className="lg:w-6 lg:h-6 w-4 h-4" />
+                  <img src="/assets/process/up.svg" alt="icon" className="lg:w-6 lg:h-6 w-4 h-4" />
                   <p className="ml-2 lg:text-[0.9rem] text-[0.5rem]">
                     No ‘I forgot to follow up’
                   </p>
@@ -615,7 +615,7 @@ export default function ProcessSection() {
           </div>
         </motion.div>
       </div>
-     
+
 
       <div className="lg:mt-0 mt-[-250px] relative">
         <div
@@ -697,7 +697,7 @@ const Marquee = () => {
         className="flex gap-4 animate-marquee"
         initial={{ x: "0%" }} // Start with content fully visible
         animate={{ x: "-100%" }} // Scroll to the left
-        transition={{ repeat: Infinity, duration: 100, ease: "linear" }}
+        transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
       >
         {items.concat(items).map((item, index) => (
           <div

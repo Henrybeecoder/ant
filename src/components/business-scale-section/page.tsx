@@ -2,6 +2,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState, useMemo } from "react";
 import useSound from "use-sound";
+import { FaHandPointer } from "react-icons/fa";
 
 const AnimatedBorder = () => (
   <>
@@ -33,13 +34,13 @@ const TaskItem = ({ icon, text, active }) => (
 
 export default function BusinessScaleSection() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [play, { stop }] = useSound("/assets/audios/hurry.mp3", {
+  const [play, { stop }] = useSound("/assets/audios/call-ai.mp3", {
     volume: 0.5,
     soundEnabled: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: no-preference)').matches
   });
 
   const controls = useAnimation();
-  const [ref, inView] = useInView({ 
+  const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
     rootMargin: '100px 0px'
@@ -65,18 +66,18 @@ export default function BusinessScaleSection() {
   }), []);
 
   const infoBoxes = useMemo(() => [
-    { 
-      icon: "/assets/process/wallet.svg", 
+    {
+      icon: "/assets/process/wallet.svg",
       text: "No salaries",
-      position: "w-[30%] max-w-[150px] min-w-[100px] top-[40%] left-[5%]" 
+      position: "w-[30%] max-w-[150px] min-w-[100px] top-[40%] left-[5%]"
     },
-    { 
-      icon: "/assets/process/sick.svg", 
+    {
+      icon: "/assets/process/sick.svg",
       text: "No Sick days",
       position: "w-[30%] max-w-[150px] min-w-[100px] top-[70%] left-[60%]"
     },
-    { 
-      icon: "/assets/process/clock.svg", 
+    {
+      icon: "/assets/process/clock.svg",
       text: "Works 24/7",
       position: "w-[30%] 2xl:max-w-[150px] max-w-[100px] min-w-[100px] top-[100%] left-[35%]"
     }
@@ -101,9 +102,9 @@ export default function BusinessScaleSection() {
 
         {/* Main Content */}
         <div className="lg:h-[900px] h-[1600px] flex lg:flex-row flex-col justify-between gap-4">
-          
+
           {/* Left Panel */}
-          <div 
+          <div
             className="lg:h-full h-[800px] lg:w-[49%] w-full relative group overflow-hidden"
             style={{
               ...containerStyles,
@@ -135,7 +136,7 @@ export default function BusinessScaleSection() {
               />
             </div>
 
-            <div 
+            <div
               ref={ref}
               className="relative h-[400px]"
               style={{
@@ -153,9 +154,9 @@ export default function BusinessScaleSection() {
 
           {/* Right Panel */}
           <div className="2xl:h-[900px] min-h-[800px] lg:w-[49%] w-full flex flex-col justify-between">
-            
+
             {/* Top Right Section */}
-            <div 
+            <div
               className="lg:h-[48%] h-[350px] relative pt-8 lg:px-8 px-3 group"
               style={{
                 ...containerStyles,
@@ -180,21 +181,22 @@ export default function BusinessScaleSection() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="w-full flex justify-center items-center">
-                    <img 
-                      src="/assets/icons/listen-icon.svg" 
-                      alt="listen icon" 
+                    {/* <img
+                      src="/assets/icons/listen-icon.svg"
+                      alt="listen icon"
                       width={16}
                       height={16}
                       loading="lazy"
-                    />
+                    /> */}
+                    <FaHandPointer className="text-[#FF4733]" fontSize={16} />
                     <p className="ml-3 text-sm">
                       {isPlaying ? "Stop Music" : "Tap to Listen"}
                     </p>
                   </div>
                   <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
-        <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
-        <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
-        <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#FF4733] group-hover/button:w-full group-hover/button:h-full transition-all duration-300 ease-out"></span>
                 </motion.button>
               </div>
 
@@ -216,7 +218,7 @@ export default function BusinessScaleSection() {
             </div>
 
             {/* Bottom Right Section */}
-            <div 
+            <div
               className="lg:h-[48%] h-[500px] relative lg:mt-0 mt-4 lg:px-4 lg:py-6 pt-8 px-3 py-3 group"
               style={{
                 ...containerStyles,
@@ -224,7 +226,7 @@ export default function BusinessScaleSection() {
               }}
             >
               <AnimatedBorder />
-              
+
               <div className="flex flex-col">
                 <p className="text-white lg:text-base text-sm">
                   Instead of focusing on strategy and expansion, you're stuck putting out fires.
@@ -233,7 +235,7 @@ export default function BusinessScaleSection() {
                   AI handles the repetitive, time-sucking tasks so you can lead, not babysit.
                 </p>
               </div>
-              
+
               <div className="relative w-full mt-10">
                 <img
                   src="/assets/business-scale/strategy.svg"
@@ -247,7 +249,7 @@ export default function BusinessScaleSection() {
                   alt="anna"
                   loading="lazy"
                 />
-                
+
                 <div className="absolute left-30 top-10">
                   {tasks.map((task, i) => (
                     <TaskItem key={i} {...task} />
@@ -260,10 +262,10 @@ export default function BusinessScaleSection() {
 
         {/* Additional Sections */}
         <div className="2xl:h-[400px]  w-full flex lg:flex-row flex-col mt-6 justify-between lg:gap-4 gap-2">
-          
+
           {/* First Additional Panel */}
           <div className="lg:h-full lg:w-[49%] w-full h-full">
-            <div 
+            <div
               className="w-full h-[80%] group relative pt-8 lg:px-8 px-3"
               style={{
                 ...containerStyles,
@@ -280,10 +282,10 @@ export default function BusinessScaleSection() {
                 </p>
               </div>
               <div className="w-full h-[70%] flex items-center justify-center">
-                <img 
-                  src="/assets/business-scale/move.webp" 
-                  alt="" 
-                  className="w-full h-full" 
+                <img
+                  src="/assets/business-scale/move.webp"
+                  alt=""
+                  className="w-full h-full"
                   loading="lazy"
                 />
               </div>
@@ -292,7 +294,7 @@ export default function BusinessScaleSection() {
 
           {/* Second Additional Panel */}
           <div className="lg:h-full lg:w-[49%] w-full h-full">
-            <div 
+            <div
               className="w-full h-[80%] group relative pt-8 lg:px-8 px-3"
               style={{
                 ...containerStyles,
@@ -308,10 +310,10 @@ export default function BusinessScaleSection() {
                   AI follows up instantly, relentlessly, and perfectly every time.
                 </p>
               </div>
-              <img 
-                src="/assets/business-scale/scale-new.svg" 
-                alt="" 
-                className="w-full h-full" 
+              <img
+                src="/assets/business-scale/scale-new.svg"
+                alt=""
+                className="w-full h-full"
                 loading="lazy"
               />
             </div>

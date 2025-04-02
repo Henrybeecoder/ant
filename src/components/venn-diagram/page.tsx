@@ -101,7 +101,7 @@ const VennDiagram = () => {
             {circlesData.map(({ cx, cy }, index) => (
               <div
                 key={`circle-${index}`}
-                className="absolute"
+                className={`absolute ${index === 3 ? "!left-[85%] md:!left-[88%] !lg:left-[85%] md:!top-[50%]" : ""} `}
                 style={{
                   left: cx,
                   top: cy,
@@ -143,7 +143,7 @@ const VennDiagram = () => {
             {labelData.map(({ cx, cy, text, area, mobileMarginClasses }, index) => (
               <div
                 key={`label-${index}`}
-                className={`absolute flex flex-col items-center justify-center ${mobileMarginClasses ?? ""}`}
+                className={`absolute flex flex-col items-center justify-center ${index === 3 ? "!left-[85%] md:!left-[88%] !lg:left-[85%] md:!top-[50%]" : ""} ${mobileMarginClasses ?? ""}`}
                 style={{
                   left: cx,
                   top: cy,

@@ -61,7 +61,7 @@ export default function WhoWeWorkWith() {
         </div>
 
         {/* Descriptions */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate={section1InView ? "visible" : "hidden"}
           variants={fadeIn}
@@ -89,7 +89,7 @@ export default function WhoWeWorkWith() {
         >
           We Don't Work With
         </motion.div>
-        
+
         <motion.div
           initial="hidden"
           animate={section2InView ? "visible" : "hidden"}
@@ -98,11 +98,11 @@ export default function WhoWeWorkWith() {
           className="lg:w-[50%] w-[49%] border-l-[0.5px] lg:text-[1rem] text-[0.6rem] border-[#FFFFFFB2] pl-3 lg:pl-10 my-5"
         >
           {dontWorkWithItems.map((item, index) => (
-            <div key={index} className="flex flex-row mt-3 first:mt-0">
-              <img 
-                src="/assets/icons/cancel.svg" 
-                alt="cancel" 
-                className="mr-4 w-4 h-4" 
+            <div key={index} className="flex relative items-start flex-row mt-3 first:mt-0">
+              <img
+                src="/assets/icons/cancel.svg"
+                alt="cancel"
+                className="mr-4 w-4 h-4 relative top-2"
                 loading="lazy"
               />
               <p className="text-start lg:text-[1.1rem] text-[0.75rem]">{item}</p>
@@ -121,7 +121,7 @@ export default function WhoWeWorkWith() {
         >
           We Work With
         </motion.div>
-        
+
         <motion.div
           initial="hidden"
           animate={section3InView ? "visible" : "hidden"}
@@ -130,11 +130,11 @@ export default function WhoWeWorkWith() {
           className="lg:w-[40%] w-[48%] border-r-[0.5px] lg:text-[1rem] text-[0.7rem] border-[#FFFFFFB2] pr-3 lg:pr-10 my-5"
         >
           {workWithItems.map((item, index) => (
-            <div key={index} className="flex flex-row mt-3 first:mt-0">
-              <img 
-                src="/assets/icons/check.svg" 
-                alt="check" 
-                className="mr-4 w-4 h-4" 
+            <div key={index} className="flex relative  flex-row mt-3 first:mt-0">
+              <img
+                src="/assets/icons/check.svg"
+                alt="check"
+                className="mr-4 w-4 h-4 relative top-1"
                 loading="lazy"
               />
               <p className="text-start lg:text-[1.1rem] text-[0.75rem]">{item}</p>

@@ -697,7 +697,7 @@ const Marquee = () => {
         className="flex gap-4 animate-marquee"
         initial={{ x: "0%" }} // Start with content fully visible
         animate={{ x: "-100%" }} // Scroll to the left
-        transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
+        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
       >
         {items.concat(items).map((item, index) => (
           <div

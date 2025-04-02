@@ -214,7 +214,7 @@ export default function ProcessSection() {
           initial="hidden"
           animate={isWorksInView ? "visible" : "hidden"}
           variants={fadeInRight}
-          className="absolute lg:w-[50%] w-[47%] 2xl:left-[-9%] left-[-3%]   top-[17%]  2xl:top-[23%]  z-40"
+          className="absolute lg:w-[50%] w-[47%] 2xl:left-[-9%] left-[1%]   top-[17%]  2xl:top-[23%]  z-40"
         >
           <div
             style={{

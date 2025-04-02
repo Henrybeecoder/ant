@@ -127,7 +127,7 @@ export default function WhoWeWorkWith() {
           animate={section3InView ? "visible" : "hidden"}
           variants={fadeIn}
           transition={{ delay: 0.1 }}
-          className="lg:w-[40%] w-[48%] border-r-[0.5px] lg:text-[1rem] text-[0.7rem] border-[#FFFFFFB2] pr-3 lg:pr-10 my-5"
+          className="lg:w-[40%] md:w-[48%]  w-[45%] border-r-[0.5px] lg:text-[1rem] text-[0.7rem] border-[#FFFFFFB2] pr-3 lg:pr-10 my-5"
         >
           {workWithItems.map((item, index) => (
             <div key={index} className="flex relative  flex-row mt-3 first:mt-0">
@@ -137,7 +137,7 @@ export default function WhoWeWorkWith() {
                 className="mr-4 w-4 h-4 relative top-1"
                 loading="lazy"
               />
-              <p className="text-start lg:text-[1.1rem] text-[0.75rem]">{item}</p>
+              <p className="text-left md:text-start lg:text-[1.1rem] text-[0.75rem]">{item}</p>
             </div>
           ))}
         </motion.div>

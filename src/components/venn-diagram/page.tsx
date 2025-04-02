@@ -130,8 +130,8 @@ const VennDiagram = () => {
                   transition={{
                     duration:
                       index === 0 ? 5 :
-                      index === 1 ? 6 :
-                      index === 2 ? 7 : 8, // unique durations
+                        index === 1 ? 6 :
+                          index === 2 ? 7 : 8, // unique durations
                     repeat: Infinity,
                     ease: "linear",
                   }}
@@ -161,7 +161,7 @@ const VennDiagram = () => {
                   />
                 ) : (
                   // Otherwise, show text
-                  <div className="text-center urbanist text-white font-[500] lg:w-[100%] w-[50%] text-[0.7rem] lg:text-[0.9rem] leading-tight">
+                  <div className="text-center urbanist text-white font-[500] lg:w-[100%] w-[50%] text-[0.65rem] lg:text-[0.9rem] leading-tight">
                     {text}
                   </div>
                 )}

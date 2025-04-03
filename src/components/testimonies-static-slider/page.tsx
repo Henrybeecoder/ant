@@ -1,8 +1,6 @@
-//@ts-ignore
-//@ts-nocheck
 import { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight, Star } from "react-feather";
-import { motion, useAnimation, PanInfo } from "framer-motion";
+import { motion, PanInfo } from "framer-motion";
 
 const TestimoniesStatic = () => {
   const testimonials = [
@@ -13,50 +11,94 @@ const TestimoniesStatic = () => {
       title: 'Performance Marketer, Fitness Brand',
       rating: 4.5
     },
-    // ... (your other testimonials)
+    {
+      id: 2,
+      video: '/assets/videos/testimonial.mp4',
+      testimony: "I used to wait weeks for creatives that didn't even convert. Now I get high-performing statics in 24 hours. Our ROAS has doubled.",
+      title: 'Founder DTC Skincare Brand',
+      rating: 3.5
+    },
+    {
+      id: 3,
+      video: '/assets/videos/testimonial.mp4',
+      testimony: "We tested 15 statics in a week without shipping a single product. The quality looked like it came out of a high-end studio.",
+      title: 'CMO, Health & Wellness Startup',
+      rating: 3
+    },
+    {
+      id: 4,
+      video: '/assets/videos/testimonial.mp4',
+      testimony: "Every time we send them an iPhone pic, it comes back as a scroll-stopper. We've scaled two winning campaigns thanks to them.",
+      title: 'Growth Lead, Smart Home Brand',
+      rating: 3.5
+    },
+    {
+      id: 5,
+      video: '/assets/videos/testimonial.mp4',
+      testimony: "What sold me was the unlimited requests. What kept me coming back was how fast they nailed our brand vibe with almost no direction.",
+      title: 'Founder, Eco Fashion Label',
+      rating: 4.5
+    },
   ];
 
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const controls = useAnimation();
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [dragStartX, setDragStartX] = useState<number | null>(null);
 
   const handleNextSlide = () => {
-    const nextSlide = (currentSlide + 1) % testimonials.length;
-    setCurrentSlide(nextSlide);
-    controls.start({ x: `-${nextSlide * 50}%` }); // Changed to 50% for your testimonial slider width
+    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrevSlide = () => {
-    const prevSlide = currentSlide === 0 ? testimonials.length - 1 : currentSlide - 1;
-    setCurrentSlide(prevSlide);
-    controls.start({ x: `-${prevSlide * 50}%` }); // Changed to 50% for your testimonial slider width
-  };
-
-  const handleDragStart = (event: MouseEvent | TouchEvent | PointerEvent) => {
-    const clientX = 'touches' in event ? event.touches[0].clientX : (event as MouseEvent).clientX;
-    setDragStartX(clientX);
+    setCurrentSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
 
   const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (!dragStartX) return;
-    
-    const clientX = 'changedTouches' in event ? event.changedTouches[0].clientX : (event as MouseEvent).clientX;
-    const deltaX = clientX - dragStartX;
-
-    if (Math.abs(deltaX) > 50) { // Minimum swipe distance
-      if (deltaX > 0) {
-        handlePrevSlide();
-      } else {
-        handleNextSlide();
-      }
+    const threshold = 50;
+    if (info.offset.x > threshold) {
+      handlePrevSlide();
+    } else if (info.offset.x < -threshold) {
+      handleNextSlide();
     }
-    
-    setDragStartX(null);
   };
 
   const renderStars = (rating: number) => {
-    // ... (your existing renderStars function)
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+
+    // Full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <Star key={`full-${i}`} className="w-4 h-4 fill-[#FF4733] stroke-none" />
+      );
+    }
+
+    // Half star
+    if (hasHalfStar) {
+      stars.push(
+        <div key="half" className="relative w-4 h-4">
+          <Star className="absolute w-4 h-4 fill-[#444444] stroke-none" />
+          <div className="absolute w-2 h-4 overflow-hidden">
+            <Star className="w-4 h-4 fill-[#FF4733] stroke-none" />
+          </div>
+        </div>
+      );
+    }
+
+    // Empty stars
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(
+        <Star key={`empty-${i}`} className="w-4 h-4 fill-[#444444] stroke-none" />
+      );
+    }
+
+    return (
+      <div className="flex items-center mt-2 mb-2">
+        <div className="flex">{stars}</div>
+        <span className="ml-1 text-xs text-[#FFFFFFB2]">({rating})</span>
+      </div>
+    );
   };
 
   return (
@@ -79,25 +121,23 @@ const TestimoniesStatic = () => {
         </div>
 
         {/* Slider Container with Drag */}
-        <div className="relative overflow-hidden" ref={sliderRef}>
-          <motion.div
-            className="flex"
-            style={{ display: 'flex' }}
-            animate={controls}
-            initial={{ x: `-${currentSlide * 50}%` }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-            dragElastic={0.1}
+        <motion.div
+          className="relative overflow-hidden"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={handleDragEnd}
+          style={{ cursor: 'grab' }}
+          whileTap={{ cursor: 'grabbing' }}
+        >
+          <div
+            ref={sliderRef}
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{ transform: `translateX(-${currentSlide * 50}%)` }}
           >
             {testimonials.map((slide, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="lg:w-[40%] flex flex-row justify-between w-[100%] lg:h-[450px] h-[400px] flex-shrink-0 text-[#FF4733] lg:py-10 lg:pb-3 py-8 lg:px-2 px-2 mr-4"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <motion.div
                   style={{
@@ -124,15 +164,16 @@ const TestimoniesStatic = () => {
                     {renderStars(slide.rating)}
                   </div>
                   
+                  {/* Border elements */}
                   <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
-                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5package, 5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                   <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                   <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                 </motion.div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
       
       {/* Pagination and Navigation */}
@@ -155,16 +196,8 @@ const TestimoniesStatic = () => {
         </div>
         <div className="lg:w-[11%] w-[30%] z-50">
           <div className="w-full flex justify-between px-4 z-50">
-            <ChevronLeft
-              onClick={handlePrevSlide}
-              className="cursor-pointer z-50 text-white hover:text-[#FF4733] transition-colors"
-              size={24}
-            />
-            <ChevronRight
-              onClick={handleNextSlide}
-              className="cursor-pointer text-white hover:text-[#FF4733] transition-colors"
-              size={24}
-            />
+            <ChevronLeft onClick={handlePrevSlide} className="cursor-pointer z-50" />
+            <ChevronRight onClick={handleNextSlide} className="cursor-pointer" />
           </div>
         </div>
       </div>

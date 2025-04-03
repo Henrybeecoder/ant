@@ -220,6 +220,94 @@ export const useCasesSlides = [
     }
   ];
 
+  export const newFaqData = [
+    {
+      id: 1,
+      question: "Can you really deliver high-quality graphics in 24–48 hours?",
+      answer: "Yes. Our team of senior designers specializes in rapid, conversion-focused visuals. We’ve built our system to move fast without sacrificing quality—backed by 10+ years of design and performance marketing experience."
+    },
+    {
+      id: 2,
+      question: "Is this expensive?",
+      answer: "It’s not cheap—but it’s far more cost-effective than traditional production. You save on studio rentals, photographers, shipping, and waiting time—while getting high-converting creatives that drive real results."
+    },
+    {
+      id: 3,
+      question: "What exactly do I get with this service?",
+      answer: "You get a dedicated design team delivering unlimited static creatives—promo graphics, lifestyle ads, model visuals, product showcases, and more. Everything delivered in 24–48 hours, tailored to your brand."
+    },
+    {
+      id: 4,
+      question: "How do you ensure data privacy and security?",
+      answer: "Security is paramount. We use industry-standard encryption, strict access controls, and proven best practices to protect your data at every step."
+    },
+    {
+      id: 5,
+      question: "How does this compare to a traditional photoshoot?",
+      answer: "Traditional shoots can cost thousands and take weeks. We offer a faster, more affordable alternative without sacrificing polish. You don’t need to ship products, hire models, or wait for edits—we handle everything digitally."
+    },
+    {
+      id: 6,
+      question: "Will the AI agent understand my industry-specific needs?",
+      answer: "Our AI agents are customized for your business and trained on industry-specific data. We tailor the workflows, responses, and integrations to match your exact requirements, ensuring relevance and effectiveness."
+    },
+    {
+      id: 7,
+      question: "Can you design for specific platforms (like TikTok, Meta, Google Ads)?",
+      answer: "Yes. Our creatives are optimized for each platform’s best practices and dimensions—whether you need square, portrait, or landscape, for ads, emails, or organic posts."
+    },
+    {
+      id: 8,
+      question: "What if I pause my service—do I lose my designs?",
+      answer: "Nope. Everything we deliver is yours forever, even if you pause or cancel. You can restart anytime, and we’ll pick up where we left off."
+    },
+    {
+      id: 9,
+      question: "What if my product photos aren’t professional?",
+      answer: "That’s exactly what we’re built for. Whether you have iPhone shots, catalog images, or raw files, we transform them into ad-ready, high-performing creatives—no studio or photographer needed."
+    },
+    {
+      id: 10,
+      question: "How many requests can I make per day/week?",
+      answer: "As many as you want—this is a true unlimited model. We’ll queue them up and deliver them in the order received, with most completed in 24–48 hours"
+    },
+    {
+      id: 11,
+      question: "Is this just Canva templates or generic design work?",
+      answer: "Absolutely not. Every asset is handcrafted by expert designers. We don’t do cookie-cutter—we do custom visuals designed to convert, differentiate, and scale with your brand."
+    },
+    {
+      id: 12,
+      question: "Do I have to commit long-term?",
+      answer: "Nope. You can pause anytime and restart when you’re ready. We’re here when you need us, not locking you into rigid contracts."
+    },
+    {
+      id: 13,
+      question: "What if I need revisions or changes?",
+      answer: "We offer unlimited revisions. If something’s off, we fix it fast. The goal is to make your brand look like a million bucks—on your terms."
+    },
+    {
+      id: 14,
+      question: "Do you offer motion graphics or just statics?",
+      answer: " Right now, we specialize in high-impact static creatives. For motion graphics, let us know—we’re testing a premium add-on for that."
+    },
+    {
+      id: 15,
+      question: "What if I don’t know what kind of visuals I want?",
+      answer: "No problem. We study your brand and competitors, analyze trends in your niche, and make data-backed creative decisions for you. If you have a vision, great. If not, we’ve got you covered."
+    },
+    {
+      id: 16,
+      question: "What kind of brands is this best for?",
+      answer: "We’re perfect for ecom brands testing 10+ creatives/month, running paid ads on Meta, TikTok, or Google, and anyone who values speed, quality, and brand consistency in their visuals."
+    },
+    {
+      id: 17,
+      question: "Do you work with non-product-based businesses?",
+      answer: "While we specialize in DTC product brands, we’ve also helped service providers, SaaS tools, and coaches build visual identities and promo creatives. If your brand needs standout visuals, we can help."
+    },
+  ];
+
 
   export const staticAds = [
     {
@@ -234,6 +322,27 @@ export const useCasesSlides = [
       first: '/assets/static-ads/second1.svg',
       firstText: 'What the brand sent us',
       second: '/assets/static-ads/second2.svg',
+      secondText: 'What we delivered',
+    },
+    {
+      id: 3,
+      first: '/assets/static-ads/third1.svg',
+      firstText: 'What the brand sent us',
+      second: '/assets/static-ads/third2.svg',
+      secondText: 'What we delivered',
+    },
+    {
+      id: 4,
+      first: '/assets/static-ads/fourth1.svg',
+      firstText: 'What the brand sent us',
+      second: '/assets/static-ads/fourth2.svg',
+      secondText: 'What we delivered',
+    },
+    {
+      id: 5,
+      first: '/assets/static-ads/fifth1.svg',
+      firstText: 'What the brand sent us',
+      second: '/assets/static-ads/fifth2.svg',
       secondText: 'What we delivered',
     },
     

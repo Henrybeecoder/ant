@@ -93,14 +93,14 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
                 className="flex flex-row border-b lg:w-[90%] w-[100%] h-full lg:ml-auto ml-0 border-[#181818] lg:py-8 lg:pt-8 pt-8 py-4 items-center bg-[#0A0A0A] z-50"
                 style={{ backdropFilter: isMobile ? "none" : "blur(12px)" }}
               >
-                {pathName !== '/' && (
-                  <img 
-                    src='/assets/icons/chevron-left.svg' 
-                    alt='icon' 
-                    className="lg:ml-8 ml-4 cursor-pointer"
-                    onClick={() => router.push('/')}
-                  />
-                )}
+                {!(pathName === '/' || pathName === '/static-ads') && (
+  <img 
+    src='/assets/icons/chevron-left.svg' 
+    alt='icon' 
+    className="lg:ml-8 ml-4 cursor-pointer"
+    onClick={() => router.push('/')}
+  />
+)}
                 <motion.p
                   className="gambarino font-[300] text-[1.25rem] ml-6"
                   variants={letterAnimation}

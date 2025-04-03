@@ -219,4 +219,23 @@ export const useCasesSlides = [
       answer: "Yes. Our AI agents are built to scale, meaning they can handle increasing workloads, adapt to new use cases, and integrate with expanding business operations without additional costs."
     }
   ];
+
+
+  export const staticAds = [
+    {
+      id: 1,
+      first: '/assets/static-ads/first1.svg',
+      firstText: 'What the brand sent us',
+      second: '/assets/static-ads/first2.svg',
+      secondText: 'What we delivered',
+    },
+    {
+      id: 2,
+      first: '/assets/static-ads/second1.svg',
+      firstText: 'What the brand sent us',
+      second: '/assets/static-ads/second2.svg',
+      secondText: 'What we delivered',
+    },
+    
+  ]
   

@@ -19,26 +19,26 @@ export default function ChatBox({
   return (
     <div className={`${className} flex flex-row  ${clientchat && 'justify-end'} ${founderchat && 'justify-start'} urbanist mb-3`}>
       {founder ? (
- <div
- style={{
-   backgroundImage: `url(${"/assets/images/founder.png"})`,
-   backgroundSize: "cover",
-   backgroundPosition: "center",
- }}
- className="w-10 h-10 rounded-full mr-3"
-></div>
+        <div
+          style={{
+            backgroundImage: `url(${"/assets/images/ose.png"})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="w-10 h-10 rounded-full mr-3"
+        ></div>
       ) : (
         <div
- style={{
-   backgroundImage: `url(${"/assets/images/founder.png"})`,
-   backgroundSize: "cover",
-   backgroundPosition: "center",
- }}
- className="w-10 h-10 invisible rounded-full mr-3"
-></div>
+          style={{
+            backgroundImage: `url(${"/assets/images/founder.png"})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="w-10 h-10 invisible rounded-full mr-3"
+        ></div>
       )}
-       
-     
+
+
       <AnimatedContainer
         className={` bg-[#181818] flex flex-col ${founderchat && 'max-w-[60%]'} ${clientchat && 'min-w-[20%]'}  font-[400] text-[0.87rem] py-3 px-3`}
         borderRadius="0px 4px 4px 3px"

@@ -15,6 +15,7 @@ import Testimonies from "@/components/testimonies-slider/page";
 import QuoteByWorldLeaders from "@/components/quote-by-world-leaders-section/page";
 import AppLayout from "../appLayout/page";
 import BrandMarquee from "@/components/brandMarquee/page";
+import BookCallButton from "@/components/book-call-btn/page";
 
 // A simple throttle hook for scroll events
 const useThrottle = (callback: Function, delay: number) => {
@@ -200,22 +201,11 @@ export default function Home() {
             We Build and Manage Custom AI Agents & Automations to Sell, Support,
             and Automate - Saving Your Time for What Truly Matters
           </p>
-          <div className="w-full flex flex-row cursor-pointer justify-center mt-8">
-            <button className="bg-[#4101F6] text-white font-[600] text-[1rem] flex flex-row px-1 py-1 cursor-pointer hover:bg-[#2e00b3] transition-all">
-              <Image src="/assets/images/ose.png" alt="" width={50} height={50} />
-              <div className="text-[#FFFFFF] h-full flex flex-col justify-center items-center mx-3">
-                <p className="font-[600] lg:text-[1rem] text-[0.8rem]">
-                  Book a call with Ose (founder)
-                </p>
-                <p className="font-[500] lg:text-[0.75rem] text-[0.7rem]">
-                  (It’s not going to be a sales pitch)
-                </p>
-              </div>
-            </button>
-          </div>
+
+          <BookCallButton />
           {/* Brand Slider */}
           {/* @ts-expect-error: Temporarily ignoring type error while refactoring */}
-     <BrandMarquee brandImages={brandImages} />
+          <BrandMarquee brandImages={brandImages} />
           <div ref={section2Ref}>
             <UseCase />
           </div>
@@ -283,7 +273,7 @@ const SectionLines: React.FC<SectionLinesProps> = ({
           width: "100%",
           display: windowWidth >= 1024 ? "block" : "none",
           height: "100vh",
-        
+
         }}
       >
         {sectionNames.map((name, index) => (
@@ -298,10 +288,10 @@ const SectionLines: React.FC<SectionLinesProps> = ({
                     isHovered && currentSection !== index
                       ? "70px"
                       : isHovered && currentSection === index
-                      ? "70px"
-                      : currentSection === index
-                      ? "50px"
-                      : "30px",
+                        ? "70px"
+                        : currentSection === index
+                          ? "50px"
+                          : "30px",
                 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 onClick={() => scrollToSection(sectionRefs[index])}
@@ -327,20 +317,20 @@ const SectionLines: React.FC<SectionLinesProps> = ({
                 {name}
               </motion.div>
             </div>
-            <motion.div className="w-[30px] h-[1px] cursor-pointer" style={{ backgroundColor: "#444444" }}  animate={{
-                  width:
-                    isHovered && currentSection !== index
-                      ? "70px"
-                      : isHovered && currentSection === index
-                      ? "70px"
-                      : currentSection === index
+            <motion.div className="w-[30px] h-[1px] cursor-pointer" style={{ backgroundColor: "#444444" }} animate={{
+              width:
+                isHovered && currentSection !== index
+                  ? "70px"
+                  : isHovered && currentSection === index
+                    ? "70px"
+                    : currentSection === index
                       ? "50px"
                       : "30px",
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                onClick={() => scrollToSection(sectionRefs[index])}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}></motion.div>
+            }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              onClick={() => scrollToSection(sectionRefs[index])}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}></motion.div>
             <motion.div className="w-[30px] h-[1px] mt-3 cursor-pointer" style={{ backgroundColor: "#444444" }}></motion.div>
           </div>
         ))}

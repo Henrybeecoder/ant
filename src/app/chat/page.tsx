@@ -9,8 +9,8 @@ import { motion } from "framer-motion";
 export default function Chat() {
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState("");
-  const [role, setRole] = useState("");
-  const [work, setWork] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [currentStep, setCurrentStep] = useState(1); // 1: name, 2: role, 3: work
 
 
@@ -23,11 +23,11 @@ export default function Chat() {
   const handleNext = () => {
     if (currentStep === 1 && name.trim()) {
       setCurrentStep(2);
-    } else if (currentStep === 2 && role.trim()) {
+    } else if (currentStep === 2 && email.trim()) {
       setCurrentStep(3);
-    } else if (currentStep === 3 && work.trim()) {
+    } else if (currentStep === 3 && phoneNumber.trim()) {
       // Submit or move to next section
-      console.log("All data:", { name, role, work });
+      console.log("All data:", { name, email, phoneNumber });
     }
   };
 
@@ -81,24 +81,24 @@ export default function Chat() {
 
                   {currentStep >= 2 && (
                     <div className="mt-6 flex flex-row items-center justify-between">
-                      i am a
+                      Client Email
                       <input
                         placeholder="Enter your role"
                         className="bg-[#181818] px-4 py-3 rounded-md relative w-[80%] mt-2 z-50"
-                        value={role}
-                        onChange={(e) => setRole(e.target.value)}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
                   )}
 
                   {currentStep >= 3 && (
                     <div className="mt-6 flex flex-row items-center justify-between">
-                      i work at
+                      Phone Number
                       <input
-                        placeholder="Enter the company you work for"
+                        placeholder="Enter phone number"
                         className="bg-[#181818] px-4 py-3 rounded-md relative  w-[80%] mt-2 z-50"
-                        value={work}
-                        onChange={(e) => setWork(e.target.value)}
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
                       />
                     </div>
                   )}
@@ -110,8 +110,8 @@ export default function Chat() {
                     <div className="flex flex-row items-center">
                       <p
                         className={`${(currentStep === 1 && !name.trim()) ||
-                          (currentStep === 2 && !role.trim()) ||
-                          (currentStep === 3 && !work.trim())
+                          (currentStep === 2 && !email.trim()) ||
+                          (currentStep === 3 && !phoneNumber.trim())
                           ? "text-[#444444]"
                           : "text-[#FFFFFF]"
                           } font-400 ml-3 text-[11px]`}
@@ -122,8 +122,8 @@ export default function Chat() {
                         size={12}
                         color={
                           (currentStep === 1 && !name.trim()) ||
-                            (currentStep === 2 && !role.trim()) ||
-                            (currentStep === 3 && !work.trim())
+                            (currentStep === 2 && !email.trim()) ||
+                            (currentStep === 3 && !phoneNumber.trim())
                             ? "#444444"
                             : "#FFFFFF"
                         }
@@ -143,13 +143,13 @@ export default function Chat() {
               </div>
             </div>
           </div>
-          {name.length > 0 && role.length > 0 && work.length > 0 && (
+          {name.length > 0 && email.length > 0 && phoneNumber.length > 0 && (
             <ChatBox founder founderchat>
               The pleasure is all mine
             </ChatBox>
           )}
 
-          {name.length > 0 && role.length > 0 && work.length > 0 && (
+          {name.length > 0 && email.length > 0 && phoneNumber.length > 0 && (
             <ChatBox founderchat>How may i help you today, {name}?</ChatBox>
           )}
 

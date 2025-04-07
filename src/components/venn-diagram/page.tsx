@@ -1,3 +1,6 @@
+// 
+
+
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -101,7 +104,7 @@ const VennDiagram = () => {
             {circlesData.map(({ cx, cy }, index) => (
               <div
                 key={`circle-${index}`}
-                className={`absolute ${index === 3 ? "!left-[85%] md:!left-[88%] !lg:left-[85%] md:!top-[50%]" : ""} `}
+                className="absolute"
                 style={{
                   left: cx,
                   top: cy,
@@ -130,8 +133,8 @@ const VennDiagram = () => {
                   transition={{
                     duration:
                       index === 0 ? 5 :
-                        index === 1 ? 6 :
-                          index === 2 ? 7 : 8, // unique durations
+                      index === 1 ? 6 :
+                      index === 2 ? 7 : 8, // unique durations
                     repeat: Infinity,
                     ease: "linear",
                   }}
@@ -143,7 +146,7 @@ const VennDiagram = () => {
             {labelData.map(({ cx, cy, text, area, mobileMarginClasses }, index) => (
               <div
                 key={`label-${index}`}
-                className={`absolute flex flex-col items-center justify-center ${index === 3 ? "!left-[85%] md:!left-[88%] !lg:left-[85%] md:!top-[50%]" : ""} ${mobileMarginClasses ?? ""}`}
+                className={`absolute flex flex-col items-center justify-center ${mobileMarginClasses ?? ""}`}
                 style={{
                   left: cx,
                   top: cy,
@@ -161,7 +164,7 @@ const VennDiagram = () => {
                   />
                 ) : (
                   // Otherwise, show text
-                  <div className="text-center urbanist text-white font-[500] lg:w-[100%] w-[50%] text-[0.65rem] lg:text-[0.9rem] leading-tight">
+                  <div className="text-center urbanist text-white font-[500] lg:w-[100%] w-[50%] text-[0.7rem] lg:text-[0.9rem] leading-tight">
                     {text}
                   </div>
                 )}

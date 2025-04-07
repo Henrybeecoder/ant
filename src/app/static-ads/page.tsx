@@ -7,6 +7,7 @@ import StaticAdsSlider from "@/components/static-ads-slider/page"
 import BookCallButtonStaticAds from "@/components/book-call-btn-static-ads/page"
 import FAQSection from "@/components/faq-section/page"
 import TestimoniesStatic from "@/components/testimonies-static-slider/page"
+import Footer from "@/components/footer-section/page"
 
 function StaticAds () {
     const brandImages = Array.from({ length: 11 }, (_, i) => i + 1);
@@ -41,9 +42,11 @@ function StaticAds () {
      <BrandMarquee brandImages={brandImages} />
      <TestimoniesStatic />
      <FAQSection static />
-        
+     <Footer />
         </div>
+     
       </motion.div>
+     
 </AppLayout>
     )
 }

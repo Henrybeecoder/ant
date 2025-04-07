@@ -1,170 +1,610 @@
 //@ts-ignore
 //@ts-nocheck
 import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "react-feather";
-import { motion, useAnimation, PanInfo } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "react-feather";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
+import Image from "next/image";
+import { staticAds } from "@/utils/data";
+import BookCallButtonStaticAds from "../book-call-btn-static-ads/page";
+import BookCallButtonSlideAds from "../book-call-btn-slide-ads/page";
 
-const TestimoniesStatic = () => {
-  const testimonials = [
-    {
-      id: 1,
-      video: '/assets/videos/testimonial.mp4',
-      testimony: 'I was skeptical at first. No shoots? No shipping? But the results speak for themselves. We\'ve cut our creative turnaround time from 2 weeks to 2 days—and conversions are up.',
-      title: 'Performance Marketer, Fitness Brand',
-      rating: 4.5
-    },
-    // ... (your other testimonials)
-  ];
+const StaticAdsSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState<"left" | "right">("right");
+  const constraintsRef = useRef(null);
 
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const controls = useAnimation();
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [dragStartX, setDragStartX] = useState<number | null>(null);
-
-  const handleNextSlide = () => {
-    const nextSlide = (currentSlide + 1) % testimonials.length;
-    setCurrentSlide(nextSlide);
-    controls.start({ x: `-${nextSlide * 50}%` }); // Changed to 50% for your testimonial slider width
-  };
-
-  const handlePrevSlide = () => {
-    const prevSlide = currentSlide === 0 ? testimonials.length - 1 : currentSlide - 1;
-    setCurrentSlide(prevSlide);
-    controls.start({ x: `-${prevSlide * 50}%` }); // Changed to 50% for your testimonial slider width
-  };
-
-  const handleDragStart = (event: MouseEvent | TouchEvent | PointerEvent) => {
-    const clientX = 'touches' in event ? event.touches[0].clientX : (event as MouseEvent).clientX;
-    setDragStartX(clientX);
+  // Swipe detection constants
+  const SWIPE_CONFIDENCE_THRESHOLD = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
   };
 
   const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (!dragStartX) return;
-    
-    const clientX = 'changedTouches' in event ? event.changedTouches[0].clientX : (event as MouseEvent).clientX;
-    const deltaX = clientX - dragStartX;
-
-    if (Math.abs(deltaX) > 50) { // Minimum swipe distance
-      if (deltaX > 0) {
-        handlePrevSlide();
-      } else {
-        handleNextSlide();
-      }
+    const swipe = swipePower(info.offset.x, info.velocity.x);
+    if (swipe < -SWIPE_CONFIDENCE_THRESHOLD) {
+      handleNextSlide();
+    } else if (swipe > SWIPE_CONFIDENCE_THRESHOLD) {
+      handlePrevSlide();
     }
-    
-    setDragStartX(null);
   };
 
-  const renderStars = (rating: number) => {
-    // ... (your existing renderStars function)
+  // Enhanced text slides with optimized animations
+  const textSlides = [
+    {
+      id: "text1",
+      content: (
+        <>
+          {/* Header */}
+          <motion.div
+            className="mb-8 lg:pl-16 pl-0 "
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <h3 className="text-[0.75rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
+              HOW WE WORK
+            </h3>
+            <p className="text-[1.12rem] text-white gambarino">
+              Built Around Speed, Strategy, and Style
+            </p>
+          </motion.div>
+          <div className="h-full w-full flex flex-col items-center justify-center ">
+            {/* Main graphic */}
+            <div className="relative w-full max-w-4xl h-[350px] flex items-center justify-center ">
+              {/* Horizontal line */}
+              <motion.div
+                className="absolute w-full h-[0.3px] bg-[#FF4733]"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              />
+
+              {/* Vertical lines with circles and boxes */}
+              <div className="absolute  lg:px-6  px-0  w-full h-full flex justify-between ">
+                {[
+                  {
+                    title: "You send a product photo",
+                    text: (
+                      <div>
+                        <span className="text-[#FF4733]">
+                          No need for a professional shoot. We work with
+                          anything
+                        </span>
+                        —from iPhone pics to catalog images.
+                      </div>
+                    ),
+                  },
+                  {
+                    title: "We research your brand + market",
+                    text: (
+                      <div>
+                        We study what visuals are working in your space,{" "}
+                        <span className="text-[#FF4733]">
+                          analyze ad trends, and apply creative strategy{" "}
+                        </span>
+                        that fits your positioning.
+                      </div>
+                    ),
+                  },
+                  {
+                    title: "You give input (if you want)",
+                    text: (
+                      <div>
+                        <span className="text-[#FF4733]">
+                          Want bold promo ads? Clean luxury shots? Model
+                          visuals?
+                        </span>
+                        You tell us—or leave it to our team
+                      </div>
+                    ),
+                  },
+                  {
+                    title: "We deliver in 24–48 hours",
+                    text: (
+                      <div>
+                        Crafted by senior designers with{" "}
+                        <span className="text-[#FF4733]">
+                          10+ years experience. Unlimited requests. Unlimited
+                          revisions. Always on-brand.
+                        </span>
+                      </div>
+                    ),
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative flex flex-col items-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  >
+                    {/* Top text box */}
+                    <div className="bg-[#151515] urbanist lg:min-h-[50px] min-h-[20px] lg:max-w-[60%] w-[90%]  text-start relative lg:py-3  py-2 lg:px-4 px-2 font-[500] lg:text-[0.75rem] text-[0.375rem] overflow-hidden">
+                      {item.title}
+                      {/* Top Left Border */}
+                      <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                      {/* Bottom Left Border */}
+                      <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                      {/* Top Right Border */}
+                      <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                      {/* Bottom Right Border */}
+                      <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                    </div>
+
+                    {/* Vertical line */}
+                    <div className="w-[0.3px] h-[500px] bg-[#FF4733] relative">
+                      {/* Circle at intersection */}
+                      <div className="absolute -bottom-[-55px] -left-2 w-4 h-4 rounded-full border-2 border-[#FF4733] bg-[#0a0a0a] flex items-center justify-center">
+                        {/* <div className="w-2 h-2 rounded-full bg-[#FF4733]" /> */}
+                      </div>
+                    </div>
+
+                    {/* Bottom text box */}
+                    <div className="bg-[#151515] urbanist min-h-[110px]   lg:max-w-[70%] w-[85%] text-start relative py-3 lg:px-4 px-2 font-[500] lg:text-[0.75rem] text-[0.375rem] overflow-hidden">
+                      {item.text}
+                      {/* Top Left Border */}
+                      <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#FF4733] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                      {/* Bottom Left Border */}
+                      <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#FF4733] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                      {/* Top Right Border */}
+                      <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#FF4733] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                      {/* Bottom Right Border */}
+                      <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#FF4733] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+      bg: "transperent",
+    },
+    {
+      id: "text2",
+      content: (
+        <>
+          {/* Header */}
+          <motion.div
+            className="mb-8 lg:px-16 px-0 flex flex-row justify-between"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div>
+              <h3 className="text-[0.75rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
+                What you get
+              </h3>
+              <p className="text-[1.12rem] text-white gambarino">
+                Your Visual Strike Team, On-Demand
+              </p>
+            </div>
+          </motion.div>
+          <div className="lg:px-30 px-0 ">
+            <div className="lg:h-[150px] h-[100px] w-full flex items-center justify-between">
+              <div className="h-full bg-[#151515] urbanist w-[49%] relative px-4 py-4">
+                <div className="h-full flex flex-col justify-between">
+                  <img
+                    src="/assets/static-ads-icons/image.svg"
+                    alt=""
+                    className="w-6 h-6"
+                  />
+                  <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px]">
+                    {" "}
+                    Promo graphics, lifestyle ads, model shots, product
+                    showcases
+                  </p>
+                </div>
+                {/* Bottom Left Border */}
+                <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                {/* Bottom Right Border */}
+                <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+              </div>
+              <div className="h-full w-[49%] flex flex-col justify-between">
+                <div className="h-[47%] relative bg-[#151515] urbanist  px-4 py-2">
+                  <div className="w-full h-full justify-center flex flex-row items-center">
+                    <img
+                      src="/assets/static-ads-icons/custom-statics.svg"
+                      alt=""
+                      className="w-6 h-6"
+                    />
+                    <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px] ml-4">
+                      Unlimited custom statics
+                    </p>
+                  </div>
+                  {/* Top Left Border */}
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Bottom Left Border */}
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Top Right Border */}
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Bottom Right Border */}
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                </div>
+                <div className="h-[47%] relative bg-[#151515] urbanist  px-4 py-2">
+                  <div className="w-full h-full justify-center flex flex-row items-center">
+                    <img
+                      src="/assets/static-ads-icons/zag.svg"
+                      alt=""
+                      className="w-6 h-6"
+                    />
+                    <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px] ml-4">
+                      24–48 hour turnaround
+                    </p>
+                  </div>
+                  {/* Top Left Border */}
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Bottom Left Border */}
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Top Right Border */}
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Bottom Right Border */}
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:h-[150px] h-[100px] w-full flex items-center mt-4 justify-between">
+              <div className="h-full bg-[#151515] urbanist w-[49%] relative px-4 py-4">
+                <div className="h-full flex flex-col justify-between">
+                  <img
+                    src="/assets/static-ads-icons/play.svg"
+                    alt=""
+                    className="w-6 h-6"
+                  />
+                  <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px]">
+                    {" "}
+                    Pause anytime.
+                    <br/>
+                    Restart anytime.
+                  </p>
+                </div>
+                {/* Bottom Left Border */}
+                <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                {/* Bottom Right Border */}
+                <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+              </div>
+              <div className="h-full w-[49%] flex flex-col justify-between">
+                <div className="h-[47%] relative bg-[#151515] urbanist  px-4 py-2">
+                  <div className="w-full h-full justify-center flex flex-row items-center">
+                    <img
+                      src="/assets/static-ads-icons/custom-statics.svg"
+                      alt=""
+                      className="w-6 h-6"
+                    />
+                    <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px] ml-4">
+                    No photoshoots
+                    </p>
+                  </div>
+                  {/* Top Left Border */}
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Bottom Left Border */}
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Top Right Border */}
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Bottom Right Border */}
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                </div>
+                <div className="h-[47%] relative bg-[#151515] urbanist  px-4 py-2">
+                  <div className="w-full h-full justify-center flex flex-row items-center">
+                    <img
+                      src="/assets/static-ads-icons/zag.svg"
+                      alt=""
+                      className="w-6 h-6"
+                    />
+                    <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px] ml-4">
+                    No product shipping
+                    </p>
+                  </div>
+                  {/* Top Left Border */}
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Bottom Left Border */}
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Top Right Border */}
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                  {/* Bottom Right Border */}
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] transition-all duration-300 ease-out group-hover:w-full group-hover:h-full"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+      bg: "transperent",
+    },
+    {
+      id: "text3",
+      content: (
+        <>
+           {/* Header */}
+           <motion.div
+            className="mb-8 lg:px-16 px-0 flex flex-row justify-between"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div>
+              <h3 className="text-[0.75rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
+                Who This Is For
+              </h3>
+              <p className="text-[1.12rem] text-white gambarino">
+                Perfect For Brands That...
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="lg:px-16 px-0 mt-20 w-[68%]">
+            <div>
+              <div>
+                <div className="flex flex-row items-center">
+                  <img src='/assets/static-ads-icons/check.svg' alt='' />
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Test 10+ creatives/month</p>
+                </div>
+                <div className="flex flex-row items-center mt-7">
+                  <img src='/assets/static-ads-icons/check.svg' alt='' />
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Are running paid ads (Meta, TikTok, Google)</p>
+                </div>
+                <div className="flex flex-row items-center mt-7">
+                  <img src='/assets/static-ads-icons/check.svg' alt='' />
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Want faster, better visual production without creative delays</p>
+                </div>
+                <div className="flex flex-row items-center mt-7">
+                  <img src='/assets/static-ads-icons/check.svg' alt='' />
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Value quality and brand consistency</p>
+                </div>
+                <div className="flex flex-row items-center mt-7">
+                  <img src='/assets/static-ads-icons/check.svg' alt='' />
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Need to launch campaigns fast, without excuses</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-20 urbanist font-[400] lg:text-[1rem] text-[0.4rem]">
+              This isn't Canva templates. This is handcrafted creative direction—executed by a pro team that understands conversion
+            </div>
+          </div>
+        </>
+      ),
+      bg: "transperent",
+    },
+    {
+      id: "text4",
+      content: (
+        <>
+          {/* Header */}
+          <motion.div
+            className="mb-8 lg:px-16 px-0 flex flex-row justify-between"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div>
+              <h3 className="text-[0.75rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
+                The Offer
+              </h3>
+              <p className="text-[1.12rem] text-white gambarino">
+                Want to See If We're a Fit?
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="lg:px-16 px-0 mt-20 w-[68%]">
+            <div>
+              <div className="lg:text-[1.25rem] text-[0.5rem] leading-[32px]">
+                We work with a limited number of brands per month to guarantee speed and creative quality.
+              </div>
+              <div className="lg:text-[0.8rem] text-[0.3rem] leading-[20px] w-[78%] mt-8">
+                If you're spending more than <span className="text-[#FF4733]">$2K/month on creative
+                or wasting hours waiting for your design team</span>—this is built for you.
+              </div>
+              <div className="flex flex-row items-center mt-5 w-[60%]">
+                <img src='/assets/static-ads-icons/alert.svg' alt='' className="w-6 h-4 mr-2"/>
+                <p className="text-[0.296rem] lg:text-[0.688rem] font-[500]">This isn't cheap—but it's far more affordable than traditional production shoots, and 10x faster.</p>
+              </div>
+            </div>
+            <BookCallButtonSlideAds />
+          </div>
+        </>
+      ),
+      bg: "bg-[#111111]",
+    },
+  ];
+
+  const allSlides = [...staticAds, ...textSlides];
+
+  const handleNextSlide = () => {
+    setDirection("right");
+    setCurrentSlide((prev) => (prev + 1) % allSlides.length);
+  };
+
+  const handlePrevSlide = () => {
+    setDirection("left");
+    setCurrentSlide((prev) => (prev === 0 ? allSlides.length - 1 : prev - 1));
+  };
+
+  // Optimized animation variants
+  const slideVariants = {
+    enter: (direction: string) => ({
+      x: direction === "right" ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: string) => ({
+      x: direction === "right" ? "-100%" : "100%",
+      opacity: 0,
+    }),
+  };
+
+  const transition = {
+    duration: 0.5,
+    ease: [0.32, 0.72, 0, 1],
   };
 
   return (
-    <div className="bg-[#0a0a0ac5] min-h-[20vh] mt-[150px] urbanist">
-      <div className="relative">
-        {/* Gradient Overlays */}
-        <div className="absolute inset-y-0 left-0 w-[10%] z-10" style={{
-          background: "linear-gradient(90deg, #0A0A0A 0%, rgba(10, 10, 10, 0) 100%)",
-        }}></div>
-        <div className="absolute inset-y-0 right-0 w-[10%] z-10" style={{
-          background: "linear-gradient(90deg, rgba(10, 10, 10, 0) 0%, #0A0A0A 100%)",
-        }}></div>
-
+    <div className="bg-[#0a0a0ac5] min-h-[20vh] my-[40px] urbanist">
+      <div
+        className={`relative pt-10 pb-8 border-[0.5px] ${
+          currentSlide < staticAds.length && "px-6"
+        }  border-[#FFFFFFB2]`}
+      >
         {/* Title and Subtitle */}
-        <div className="mt-14">
-          <p className="text-[#FFFFFFB2] text-center mb-2 lg:mb-6">Testimonials</p>
-          <p className="text-center text-[1.6rem] lg:leading-0 leading-8 mb-2 lg:mb-2">
-            Hear what our clients say
-          </p>
-        </div>
+        {currentSlide < staticAds.length ? (
+          <div className="mb-10">
+            <p className="font-[400] text-[#FFFFFF] text-[1.4rem] text-center mb-2 lg:mb-6 gambarino">
+              The Before & Afters Say It All
+            </p>
+            <p className="text-center text-[1.125rem] urbanist text-[#ffffff9d] lg:leading-0 leading-8 mb-6 lg:mb-2">
+              Delivered in 24 hours. No product shipped. No studio booked.
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
 
-        {/* Slider Container with Drag */}
-        <div className="relative overflow-hidden" ref={sliderRef}>
-          <motion.div
-            className="flex"
-            style={{ display: 'flex' }}
-            animate={controls}
-            initial={{ x: `-${currentSlide * 50}%` }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-            dragElastic={0.1}
-          >
-            {testimonials.map((slide, index) => (
-              <motion.div
-                key={index}
-                className="lg:w-[40%] flex flex-row justify-between w-[100%] lg:h-[450px] h-[400px] flex-shrink-0 text-[#FF4733] lg:py-10 lg:pb-3 py-8 lg:px-2 px-2 mr-4"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
+        {/* Slider Container */}
+        <div
+          className="relative overflow-hidden h-[450px] w-full"
+          ref={constraintsRef}
+        >
+          <AnimatePresence custom={direction} mode="popLayout" initial={false}>
+            <motion.div
+              key={currentSlide}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={transition}
+              className="absolute inset-0"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              onDragEnd={handleDragEnd}
+              style={{ touchAction: 'pan-y' }}
+            >
+              {currentSlide < staticAds.length ? (
+                // Image slide
+                <div className="flex flex-row justify-between h-full w-full gap-4">
+                  {/* Before Image */}
+                  <motion.div
+                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center px-4 py-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                  >
+                    <div className="h-full flex flex-col justify-between items-center">
+                      <div className="relative w-full h-[80%]">
+                        <Image
+                          src={allSlides[currentSlide].first}
+                          alt={allSlides[currentSlide].firstText}
+                          fill
+                          className="object-contain"
+                          priority={currentSlide < 2}
+                        />
+                      </div>
+                      <motion.p
+                        className="text-[#ffffff] mt-7 text-center"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.4 }}
+                      >
+                        {allSlides[currentSlide].firstText}
+                      </motion.p>
+                    </div>
+                  </motion.div>
+
+                  {/* After Image */}
+                  <motion.div
+                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center px-4 py-4"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                  >
+                    <div className="h-full flex flex-col justify-between items-center">
+                      <div className="relative w-full h-[80%]">
+                        <Image
+                          src={allSlides[currentSlide].second}
+                          alt={allSlides[currentSlide].secondText}
+                          fill
+                          className="object-contain"
+                          priority={currentSlide < 2}
+                        />
+                      </div>
+                      <motion.p
+                        className="text-[#FFFFFF] mt-7 text-center"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.5 }}
+                      >
+                        {allSlides[currentSlide].secondText}
+                      </motion.p>
+                    </div>
+                  </motion.div>
+                </div>
+              ) : (
+                // Text slide
                 <motion.div
-                  style={{
-                    backgroundImage: "url('/assets/images/testimony-new-bg.png')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundBlendMode: "multiply",
-                    boxShadow: `0px 12px 27px 0px #0000001A, 0px 49px 49px 0px #00000017, 0px 110px 66px 0px #0000000D, 0px 195px 78px 0px #00000003, 0px 305px 85px 0px #00000000`,
-                  }}
-                  className="lg:w-[100%] relative w-[100%] h-full lg:p-8 p-2 flex flex-col justify-between"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  className={`h-full w-full `}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="min-h-[70%]">
-                    <img src="/assets/icons/quote.svg" alt="quote-svg" className="w-4 h-4 mb-8" />
-                    <span className="text-[#FFFFFF] text-lg lg:text-[1rem] text-[0.7rem]">
-                      {slide.testimony}
-                    </span>
+                  <div className="w-full max-w-4xl">
+                    {allSlides[currentSlide].content}
                   </div>
-                  
-                  <div className="lg:text-[1rem] text-[0.6rem]">
-                    <p className="text-[#FFFFFFB2] font-[400]">{slide.title}</p>
-                    {renderStars(slide.rating)}
-                  </div>
-                  
-                  <span className="absolute top-0 left-0 w-2 h-2 border-t-[0.5px] border-l-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
-                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b-[0.5px] border-l-[0.5package, 5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
-                  <span className="absolute top-0 right-0 w-2 h-2 border-t-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
-                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
                 </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
-      
+
       {/* Pagination and Navigation */}
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between mt-6 items-center">
         <div className="lg:w-[40%] w-[60%]">
           <div className="flex flex-row items-center">
             <div className="lg:w-[200px] h-[4px] w-[78%] bg-[#FFFFFF33] rounded-full relative">
-              <div
+              <motion.div
                 className="h-full bg-[#FF4733] rounded-full absolute left-0"
-                style={{
-                  width: `${((currentSlide + 1) / testimonials.length) * 100}%`,
-                  transition: "width 0.3s ease",
+                initial={{ width: "0%" }}
+                animate={{
+                  width: `${((currentSlide + 1) / allSlides.length) * 100}%`,
                 }}
-              ></div>
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              />
             </div>
             <p className="text-[#444444] w-[20%] lg:text-[0.9rem] lg:ml-4 ml-1 text-[0.8rem]">
-              {currentSlide + 1} / {testimonials.length}
+              {currentSlide + 1} / {allSlides.length}
             </p>
           </div>
         </div>
         <div className="lg:w-[11%] w-[30%] z-50">
           <div className="w-full flex justify-between px-4 z-50">
-            <ChevronLeft
+            <motion.button
               onClick={handlePrevSlide}
-              className="cursor-pointer z-50 text-white hover:text-[#FF4733] transition-colors"
-              size={24}
-            />
-            <ChevronRight
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Previous slide"
+              className="focus:outline-none"
+            >
+              <ChevronLeft
+                className="text-white hover:text-[#FF4733] transition-colors"
+                size={24}
+              />
+            </motion.button>
+            <motion.button
               onClick={handleNextSlide}
-              className="cursor-pointer text-white hover:text-[#FF4733] transition-colors"
-              size={24}
-            />
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Next slide"
+              className="focus:outline-none"
+            >
+              <ChevronRight
+                className="text-white hover:text-[#FF4733] transition-colors"
+                size={24}
+              />
+            </motion.button>
           </div>
         </div>
       </div>
@@ -172,4 +612,4 @@ const TestimoniesStatic = () => {
   );
 };
 
-export default TestimoniesStatic;
+export default StaticAdsSlider;

@@ -36,31 +36,31 @@ const StaticAdsSlider = () => {
         <>
           {/* Header */}
           <motion.div
-            className="mb-8 lg:pl-16 pl-0 "
+            className="lg:mb-8 mb-3 lg:pl-16 pl-0 "
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <h3 className="text-[0.75rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
+            <h3 className="lg:text-[0.75rem] text-[0.65rem]   font-semibold text-[#4C4C4C] mb-2 urbanist">
               HOW WE WORK
             </h3>
-            <p className="text-[1.12rem] text-white gambarino">
+            <p className="lg:text-[1.12rem] text-[1rem] text-white gambarino">
               Built Around Speed, Strategy, and Style
             </p>
           </motion.div>
           <div className="h-full w-full flex flex-col items-center justify-center ">
             {/* Main graphic */}
-            <div className="relative w-full max-w-4xl h-[350px] flex items-center justify-center ">
+            <div className="relative w-full max-w-4xl   h-[350px] flex items-center justify-center ">
               {/* Horizontal line */}
               <motion.div
-                className="absolute w-full h-[0.3px] bg-[#FF4733]"
+                className="absolute w-full lg:top-29 top-14 h-[0.3px] bg-[#FF4733]"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               />
 
               {/* Vertical lines with circles and boxes */}
-              <div className="absolute  lg:px-6  px-0  w-full h-full flex justify-between ">
+              <div className="absolute  lg:px-6  px-2  w-full h-full flex justify-between ">
                 {[
                   {
                     title: "You send a product photo",
@@ -132,9 +132,9 @@ const StaticAdsSlider = () => {
                     </div>
 
                     {/* Vertical line */}
-                    <div className="w-[0.3px] h-[500px] bg-[#FF4733] relative">
+                    <div className="w-[0.3px] lg:h-[100px] h-[40px] bg-[#FF4733] relative">
                       {/* Circle at intersection */}
-                      <div className="absolute -bottom-[-55px] -left-2 w-4 h-4 rounded-full border-2 border-[#FF4733] bg-[#0a0a0a] flex items-center justify-center">
+                      <div className="absolute lg:-bottom-[-30px] -bottom-[-10px] -left-2 w-4 h-4 rounded-full border-2 border-[#FF4733] bg-[#0a0a0a] flex items-center justify-center">
                         {/* <div className="w-2 h-2 rounded-full bg-[#FF4733]" /> */}
                       </div>
                     </div>
@@ -166,28 +166,28 @@ const StaticAdsSlider = () => {
         <>
           {/* Header */}
           <motion.div
-            className="mb-8 lg:px-16 px-0 flex flex-row justify-between"
+            className="lg:mb-8 mb-3 lg:px-16 px-2 flex flex-row justify-between"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
             <div>
-              <h3 className="text-[0.75rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
+              <h3 className="lg:text-[0.75rem] text-[0.65rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
                 What you get
               </h3>
-              <p className="text-[1.12rem] text-white gambarino">
+              <p className="lg:text-[1.12rem] text-[1rem] text-white gambarino">
                 Your Visual Strike Team, On-Demand
               </p>
             </div>
           </motion.div>
-          <div className="lg:px-30 px-0 ">
-            <div className="lg:h-[150px] h-[100px] w-full flex items-center justify-between">
-              <div className="h-full bg-[#151515] urbanist w-[49%] relative px-4 py-4">
+          <div className="lg:px-30 px-4 ">
+            <div className="lg:h-[130px] h-[60px] w-full flex items-center justify-between">
+              <div className="h-full bg-[#151515] urbanist w-[49%] relative lg:px-4  px-2 lg:py-4 py-2">
                 <div className="h-full flex flex-col justify-between">
                   <img
                     src="/assets/static-ads-icons/image.svg"
                     alt=""
-                    className="w-6 h-6"
+                    className="lg:w-6 lg:h-6 w-4 h-4"
                   />
                   <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px]">
                     {" "}
@@ -206,7 +206,7 @@ const StaticAdsSlider = () => {
                     <img
                       src="/assets/static-ads-icons/custom-statics.svg"
                       alt=""
-                      className="w-6 h-6"
+                      className="lg:w-6 lg:h-6 w-4 h-4"
                     />
                     <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px] ml-4">
                       Unlimited custom statics
@@ -226,7 +226,7 @@ const StaticAdsSlider = () => {
                     <img
                       src="/assets/static-ads-icons/zag.svg"
                       alt=""
-                      className="w-6 h-6"
+                      className="lg:w-6 lg:h-6 w-4 h-4"
                     />
                     <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px] ml-4">
                       24–48 hour turnaround
@@ -244,13 +244,13 @@ const StaticAdsSlider = () => {
               </div>
             </div>
 
-            <div className="lg:h-[150px] h-[100px] w-full flex items-center mt-4 justify-between">
-              <div className="h-full bg-[#151515] urbanist w-[49%] relative px-4 py-4">
+            <div className="lg:h-[130px] h-[60px] w-full flex items-center lg:mt-4 mt-2 justify-between">
+              <div className="h-full bg-[#151515] urbanist w-[49%] relative lg:px-4 px-2 lg:py-4 py-2">
                 <div className="h-full flex flex-col justify-between">
                   <img
                     src="/assets/static-ads-icons/play.svg"
                     alt=""
-                    className="w-6 h-6"
+                    className="lg:w-6 lg:h-6 w-4 h-4"
                   />
                   <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px]">
                     {" "}
@@ -270,7 +270,7 @@ const StaticAdsSlider = () => {
                     <img
                       src="/assets/static-ads-icons/custom-statics.svg"
                       alt=""
-                      className="w-6 h-6"
+                      className="lg:w-6 lg:h-6 w-4 h-4"
                     />
                     <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px] ml-4">
                     No photoshoots
@@ -290,7 +290,7 @@ const StaticAdsSlider = () => {
                     <img
                       src="/assets/static-ads-icons/zag.svg"
                       alt=""
-                      className="w-6 h-6"
+                      className="lg:w-6 lg:h-6 w-4 h-4"
                     />
                     <p className="font-[400] lg:text-[0.875rem] text-[0.375rem] tracking-[0.43px] ml-4">
                     No product shipping
@@ -318,47 +318,47 @@ const StaticAdsSlider = () => {
         <>
            {/* Header */}
            <motion.div
-            className="mb-8 lg:px-16 px-0 flex flex-row justify-between"
+            className="lg:mb-8 mb-2 lg:px-16 px-2 flex flex-row justify-between"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
             <div>
-              <h3 className="text-[0.75rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
+              <h3 className="lg:text-[0.75rem] text-[0.65rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
                 Who This Is For
               </h3>
-              <p className="text-[1.12rem] text-white gambarino">
+              <p className="lg:text-[1.12rem] text-[1rem] text-white gambarino">
                 Perfect For Brands That...
               </p>
             </div>
           </motion.div>
 
-          <div className="lg:px-16 px-0 mt-20 w-[68%]">
+          <div className="lg:px-16 px-2 lg:mt-14 mt-2 lg:w-[68%] w-full">
             <div>
               <div>
                 <div className="flex flex-row items-center">
                   <img src='/assets/static-ads-icons/check.svg' alt='' />
-                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Test 10+ creatives/month</p>
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.7rem] ml-2">Test 10+ creatives/month</p>
                 </div>
-                <div className="flex flex-row items-center mt-7">
+                <div className="flex flex-row items-center lg:mt-5 mt-2">
                   <img src='/assets/static-ads-icons/check.svg' alt='' />
-                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Are running paid ads (Meta, TikTok, Google)</p>
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.7rem] ml-2">Are running paid ads (Meta, TikTok, Google)</p>
                 </div>
-                <div className="flex flex-row items-center mt-7">
+                <div className="flex flex-row items-center lg:mt-5 mt-2">
                   <img src='/assets/static-ads-icons/check.svg' alt='' />
-                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Want faster, better visual production without creative delays</p>
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.7rem] ml-2">Want faster, better visual production without creative delays</p>
                 </div>
-                <div className="flex flex-row items-center mt-7">
+                <div className="flex flex-row items-center lg:mt-5 mt-2">
                   <img src='/assets/static-ads-icons/check.svg' alt='' />
-                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Value quality and brand consistency</p>
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.7rem] ml-2">Value quality and brand consistency</p>
                 </div>
-                <div className="flex flex-row items-center mt-7">
+                <div className="flex flex-row items-center lg:mt-5 mt-2">
                   <img src='/assets/static-ads-icons/check.svg' alt='' />
-                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.4rem] ml-2">Need to launch campaigns fast, without excuses</p>
+                  <p className="urbanist font-[400] lg:text-[1rem] text-[0.7rem] ml-2">Need to launch campaigns fast, without excuses</p>
                 </div>
               </div>
             </div>
-            <div className="mt-20 urbanist font-[400] lg:text-[1rem] text-[0.4rem]">
+            <div className="lg:mt-14 mt-2 urbanist font-[400] lg:text-[1rem] text-[0.7rem]">
               This isn't Canva templates. This is handcrafted creative direction—executed by a pro team that understands conversion
             </div>
           </div>
@@ -369,43 +369,43 @@ const StaticAdsSlider = () => {
     {
       id: "text4",
       content: (
-        <>
+        <div className="">
           {/* Header */}
           <motion.div
-            className="mb-8 lg:px-16 px-0 flex flex-row justify-between"
+            className="lg:mb-8 mb-4 lg:px-16 px-2 flex flex-row justify-between"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
             <div>
-              <h3 className="text-[0.75rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
+              <h3 className="lg:text-[0.75rem] text-[0.65rem]  font-semibold text-[#4C4C4C] mb-2 urbanist">
                 The Offer
               </h3>
-              <p className="text-[1.12rem] text-white gambarino">
+              <p className="lg:text-[1.12rem] text-[1rem] text-white gambarino">
                 Want to See If We're a Fit?
               </p>
             </div>
           </motion.div>
 
-          <div className="lg:px-16 px-0 mt-20 w-[68%]">
+          <div className="lg:px-16 px-2 lg:mt-14 mt-6 lg:w-[80%] w-[100%]">
             <div>
-              <div className="lg:text-[1.25rem] text-[0.5rem] leading-[32px]">
+              <div className="lg:text-[1.25rem] text-[0.8rem] lg:leading-[28px] leading-[15px]">
                 We work with a limited number of brands per month to guarantee speed and creative quality.
               </div>
-              <div className="lg:text-[0.8rem] text-[0.3rem] leading-[20px] w-[78%] mt-8">
+              <div className="lg:text-[1.25rem] text-[0.8rem] lg:leading-[28px] leading-[15px] lg:w-[78%] w-full lg:mt-8 mt-4">
                 If you're spending more than <span className="text-[#FF4733]">$2K/month on creative
                 or wasting hours waiting for your design team</span>—this is built for you.
               </div>
-              <div className="flex flex-row items-center mt-5 w-[60%]">
+              <div className="flex flex-row items-center lg:mt-5  mt-3 lg:w-[60%] w-full">
                 <img src='/assets/static-ads-icons/alert.svg' alt='' className="w-6 h-4 mr-2"/>
-                <p className="text-[0.296rem] lg:text-[0.688rem] font-[500]">This isn't cheap—but it's far more affordable than traditional production shoots, and 10x faster.</p>
+                <p className="text-[0.596rem] lg:text-[0.888rem] font-[500]">This isn't cheap—but it's far more affordable than traditional production shoots, and 10x faster.</p>
               </div>
             </div>
-            <BookCallButtonSlideAds />
+            {/* <BookCallButtonSlideAds /> */}
           </div>
-        </>
+        </div>
       ),
-      bg: "bg-[#111111]",
+      bg: "transperent",
     },
   ];
 
@@ -445,17 +445,17 @@ const StaticAdsSlider = () => {
   return (
     <div className="bg-[#0a0a0ac5] min-h-[20vh] my-[40px] urbanist">
       <div
-        className={`relative pt-10 pb-8 border-[0.5px] ${
-          currentSlide < staticAds.length && "px-6"
-        }  border-[#FFFFFFB2]`}
+        className={`relative lg:pt-10 pt-5 lg:pb-8 pb-4 border-[0.5px] ${
+          currentSlide < staticAds.length && "lg:px-6 px-3"
+        }  border-[#FFFFFFB2] `}
       >
         {/* Title and Subtitle */}
         {currentSlide < staticAds.length ? (
-          <div className="mb-10">
-            <p className="font-[400] text-[#FFFFFF] text-[1.4rem] text-center mb-2 lg:mb-6 gambarino">
+          <div className="lg:mb-10 mb-2">
+            <p className="font-[400] text-[#FFFFFF] lg:text-[1.4rem] text-[0.8rem] text-center mb-1 lg:mb-6 gambarino">
               The Before & Afters Say It All
             </p>
-            <p className="text-center text-[1.125rem] urbanist text-[#ffffff9d] lg:leading-0 leading-8 mb-6 lg:mb-2">
+            <p className="text-center lg:text-[1.125rem] text-[0.6rem] urbanist text-[#ffffff9d] lg:leading-0 leading-8 mb-3 lg:mb-2">
               Delivered in 24 hours. No product shipped. No studio booked.
             </p>
           </div>
@@ -465,7 +465,7 @@ const StaticAdsSlider = () => {
 
         {/* Slider Container */}
         <div
-          className="relative overflow-hidden h-[450px] w-full"
+          className={`relative overflow-hidden ${currentSlide < staticAds.length ? 'lg:h-[300px] h-[100px]' : 'lg:h-[360px] h-[200px]' }  w-full`}
           ref={constraintsRef}
         >
           <AnimatePresence custom={direction} mode="popLayout" initial={false}>
@@ -488,13 +488,13 @@ const StaticAdsSlider = () => {
                 <div className="flex flex-row justify-between h-full w-full gap-4">
                   {/* Before Image */}
                   <motion.div
-                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center px-4 py-4"
+                    className="w-full md:w-[49%]  border-[0.5px]  border-[#444444] h-full relative overflow-hidden flex flex-col justify-center lg:px-4 px-4 py-4"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.2 }}
                   >
                     <div className="h-full flex flex-col justify-between items-center">
-                      <div className="relative w-full h-[80%]">
+                      <div className="relative w-full h-[90%]">
                         <Image
                           src={allSlides[currentSlide].first}
                           alt={allSlides[currentSlide].firstText}
@@ -504,7 +504,7 @@ const StaticAdsSlider = () => {
                         />
                       </div>
                       <motion.p
-                        className="text-[#ffffff] mt-7 text-center"
+                        className="text-[#ffffff] lg:mt-7 mt-3 text-center lg:text-[1rem] text-[0.6rem]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.3, delay: 0.4 }}
@@ -516,13 +516,13 @@ const StaticAdsSlider = () => {
 
                   {/* After Image */}
                   <motion.div
-                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center px-4 py-4"
+                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center lg:px-4 px-4 py-4"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 }}
                   >
                     <div className="h-full flex flex-col justify-between items-center">
-                      <div className="relative w-full h-[80%]">
+                      <div className="relative w-full h-[90%]">
                         <Image
                           src={allSlides[currentSlide].second}
                           alt={allSlides[currentSlide].secondText}
@@ -532,7 +532,7 @@ const StaticAdsSlider = () => {
                         />
                       </div>
                       <motion.p
-                        className="text-[#FFFFFF] mt-7 text-center"
+                        className="text-[#FFFFFF] lg:mt-7 mt-3 text-center lg:text-[1rem] text-[0.6rem]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.3, delay: 0.5 }}

@@ -41,7 +41,7 @@ export default function Footer() {
   const isCopyrightInView = useInView(copyrightRef, { once: true });
 
   return (
-    <div className="w-full min-h-[100vh] py-6 lg:px-15 px-0 mt-72">
+    <div className="w-full min-h-[100vh] py-6 lg:px-15 px-0">
       {/* Logo and Tagline */}
       <div className="flex border-b border-b-[#444444] pb-8 text-[#ffffff] font-[400] justify-between items-center">
         <motion.div

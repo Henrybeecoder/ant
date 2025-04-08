@@ -228,7 +228,7 @@ export default function Home() {
             <FAQSection />
           </div>
           <QuoteByWorldLeaders />
-          <div ref={section9Ref}>
+          <div ref={section9Ref} className="mt-72">
             <Footer />
           </div>
         </div>

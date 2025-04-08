@@ -88,11 +88,29 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
         <div className="max-w-[1440px] mx-auto">
           {/* Sticky Header */}
           {!noHeader && (
-            <div className="fixed top-0 left-1/2 z-50 transform -translate-x-1/2 w-[100%]">
+            <div className="fixed  top-0 left-1/2 z-50 transform -translate-x-1/2 w-[100%]">
+              {isMobile ? (''): (
+   <div className="w-[30%] absolute h-[100px] ">
+   <div className="w-[30%] h-full  flex flex-row justify-center items-center">
+   <motion.img
+src="/assets/icons/logo.svg"
+alt="Logo"
+className="cursor-pointer w-[19%]"
+variants={logoAnimation}
+animate={isMobile ? {} : controls}
+onClick={() => router.push('/')}
+/>
+   </div>
+
+ </div>
+
+              )}
+           
               <div
-                className="flex flex-row border-b lg:w-[90%] w-[100%] h-full lg:ml-auto ml-0 border-[#181818] lg:py-8 lg:pt-8 pt-8 py-4 items-center bg-[#0A0A0A] z-50"
+                className="flex flex-row border-b lg:w-[90%]  w-[100%] lg:h-[100px] h-[70px] lg:ml-auto ml-0 border-[#181818] lg:py-8 lg:pt-8 pt-8 py-4 items-center bg-[#0A0A0A] z-50"
                 style={{ backdropFilter: isMobile ? "none" : "blur(12px)" }}
               >
+            
                 {!(pathName === '/' || pathName === '/static-ads') && (
   <img 
     src='/assets/icons/chevron-left.svg' 

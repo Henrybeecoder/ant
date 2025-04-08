@@ -30,13 +30,13 @@ export default function Sidebar({ controls, sidebarAnimation, logoAnimation }) {
       variants={sidebarAnimation}
     >
       <div className="absolute  right-0 top-0 w-[18px] h-full bg-gradient-to-r from-[#000000] to-[#0A0A0A]"></div>
-      <motion.img
+      {/* <motion.img
         src="/assets/icons/logo.svg"
         alt="Logo"
         className="cursor-pointer w-[18%] h-[15%]"
         variants={logoAnimation}
         animate={isMobile ? {} : controls}
-      />
+      /> */}
     </motion.div>
   );
 }

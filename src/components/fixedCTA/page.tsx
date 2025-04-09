@@ -46,7 +46,7 @@ export default function FixedCTA() {
         className="flex flex-row justify-between lg:w-[30%] w-[100%] py-4 lg:px-6 px-4 relative"
         style={{
           background: "linear-gradient(360deg, rgba(0, 0, 0, 0.8) 0%, rgba(6, 6, 6, 0.9) 50%, rgba(11, 11, 11, 0.8) 100%)",
-          border: "1px solid rgba(255, 255, 255, 0.1)",
+         
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           backdropFilter: "blur(50px)",
           WebkitBackdropFilter: "blur(50px)", // For Safari support

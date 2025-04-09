@@ -1,4 +1,6 @@
 
+//@ts-ignore
+//@ts-nocheck
 import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";

@@ -54,11 +54,20 @@ function StaticAds () {
             className="font-[500] text-center lg:px-[270px] px-7 lg:text-[2.1rem] lg:leading-9 leading-7 text-[1.5rem]"
           >
          Statics that sell. 
-         Delivered in  {''}
-            <span className="text-[#FF4733]">
-             24 hours.
-            </span>
+       
           </p>
+          <p
+           
+           
+          
+           className="font-[500] text-center lg:px-[270px] px-7 lg:text-[2.1rem] lg:leading-9 leading-7 text-[1.5rem]"
+         >
+      Delivered in {''}
+      
+           <span className="text-[#FF4733]">
+            24 hours.
+           </span>
+         </p>
           <p className="font-[400] my-5 text-center lg:px-[193px] px-0 text-[#FFFFFFB2] lg:text-[1rem] text-[0.775rem]">
           No shoots. No shipping. Unlimited requests. Unlimited revisions. 
           Visuals that make your brand feel like a million bucks, without spending it.

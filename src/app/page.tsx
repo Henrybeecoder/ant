@@ -191,15 +191,17 @@ export default function Home() {
             ref={section0Ref}
             className="font-[500] text-center lg:px-[120px] px-0 lg:text-[1.75rem] lg:leading-9 leading-7 text-[1.25rem]"
           >
-            Turn Your Fast-Growing Flood of Inquiries into Sales Wins! Our AI
-            Assistants Handle Service and Sales 24/7.{" "}
+            {/* Turn Your Fast-Growing Flood of Inquiries into Sales Wins! Our AI
+            Assistants Handle Service and Sales 24/7.{" "} */}
+            We Build Quality AI Agents That Handle Sales and Support 24/7. {" "}
             <span className="text-[#FF4733]">
-              More Affordable Than Staff, More Profitable for Your Business
+            So You Never Lose a Customer Again.
             </span>
           </p>
           <p className="font-[400] my-5 text-center lg:px-[160px] px-0 text-[#FFFFFFB2] lg:text-[1rem] text-[0.875rem]">
-            We Build and Manage Custom AI Agents & Automations to Sell, Support,
-            and Automate - Saving Your Time for What Truly Matters
+            {/* We Build and Manage Custom AI Agents & Automations to Sell, Support,
+            and Automate - Saving Your Time for What Truly Matters */}
+            MIT research shows you’re 100x more likely to lose a customer if you don’t respond within 5 minutes.
           </p>
 
           <BookCallButton />

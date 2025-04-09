@@ -300,7 +300,7 @@ const TestimoniesStatic = () => {
       const mobile = window.innerWidth <= 768;
       setIsMobile(mobile);
       if (sliderRef.current) {
-        slideWidthRef.current = mobile ? 100 : 40; // 100% width on mobile, 40% on desktop
+        slideWidthRef.current = mobile ? 80 : 30; // 100% width on mobile, 40% on desktop
       }
     };
 

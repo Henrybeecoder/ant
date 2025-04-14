@@ -10,6 +10,7 @@ interface VideoPlayerProps {
   loop?: boolean;
   showControls?: boolean;
   className?: string;
+  poster?: string;
 }
 
 export const VideoPlayer = ({
@@ -17,6 +18,7 @@ export const VideoPlayer = ({
   autoPlay = false,
   loop = false,
   showControls = false,
+  poster = "",
   className = ""
 }: VideoPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(autoPlay);
@@ -82,6 +84,7 @@ export const VideoPlayer = ({
         autoPlay={autoPlay}
         loop={loop}
         playsInline
+        poster={poster}
         onLoadedMetadata={handleLoadedMetadata}
         onPlay={() => {
           setIsPlaying(true);
@@ -98,9 +101,9 @@ export const VideoPlayer = ({
         }}
         onClick={togglePlay}
       />
-      
+
       {/* Center play/pause button */}
-      <div 
+      <div
         className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity"
         onClick={togglePlay}
       >
@@ -122,7 +125,7 @@ export const VideoPlayer = ({
           <span className="absolute bottom-0 right-0 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#b1b1b1] group-hover:w-full group-hover:h-full transition-all duration-300 ease-out"></span>
         </div>
       </div>
-      
+
       {/* Bottom controls bar */}
       {showControls && (
         <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-black/80 to-transparent">

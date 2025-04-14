@@ -244,7 +244,7 @@ export default function Home() {
                  <div className="w-full" style={{ maxWidth: '800px', margin: '0 auto' }}>
                    <VideoPlayer
                      src="/assets/videos/mov.mp4"
-                     
+                poster="/assets/images/thumbnail.png"
                      loop
                      showControls={showVideoControls}
                    />

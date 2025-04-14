@@ -620,7 +620,7 @@ const StaticAdsSlider = () => {
       'bg-[#0a0a0ac5] min-h-[20vh] my-[40px]'} urbanist`}
     >
       <div
-        className={`relative ${isFullScreen ? 'pt-4' : 'lg:pt-10 pt-5'} lg:pb-8 pb-4 border-[0.5px] ${
+        className={`relative  ${isFullScreen ? 'pt-4' : 'lg:pt-10 pt-5'} lg:pb-8 pb-4 border-[0.5px] ${
           currentSlide < staticAds.length && "lg:px-6 px-3"
         } border-[#FFFFFFB2] ${isFullScreen ? 'mx-auto w-full max-w-[90vw]' : ''}`}
       >
@@ -677,7 +677,7 @@ const StaticAdsSlider = () => {
               {currentSlide < staticAds.length ? (
                 <div className="flex flex-row justify-between h-full w-full gap-4">
                   <motion.div
-                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center lg:px-4 px-4 py-4"
+                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center lg:px-4 px-2 lg:py-4 py-2"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.2 }}
@@ -704,7 +704,7 @@ const StaticAdsSlider = () => {
                   </motion.div>
 
                   <motion.div
-                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center lg:px-4 px-4 py-4"
+                    className="w-full md:w-[49%] border-[0.5px] border-[#444444] h-full relative overflow-hidden flex flex-col justify-center lg:px-4 px-2 lg:py-4 py-2"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 }}

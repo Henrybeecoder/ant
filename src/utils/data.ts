@@ -1,83 +1,49 @@
 export const useCasesSlides = [
-    {
-      title: "AI Sales Assistant",
-      description: "Never tired, never distracted, never losing a deal.",
-      extraText: 'This AI doesn’t just chat, it sells. It finds the hottest leads, handles objections like a pro, and closes deals before your human team finishes their coffee.',
-      details: [
-        "Works via voice, text, & email",
-        "Engages, persuades, and closes deals",
-        "Identifies & prioritizes high-value leads",
-        "Optimizes pricing, pitches, and engagements",
-      ],
-    },
-    {
-      title: "AI Appointment Setter",
-      description: "The calendar gatekeeper you wish you had sooner.",
-      extraText: 'No more back-and-forth scheduling nightmares. This AI books meetings, reschedules like a pro, and never double-books.',
-      details: [
-        "Sends reminders & reschedules",
-        "Syncs with multiple calendars & time zones",
-        "Qualifies leads & books meetings automatically",
-        "Eliminates scheduling headaches AI CRM Manager",
-      ],
-    },
-    {
-      title: "AI CRM Manager",
-      description: "The one who actually updates the CRM.",
-      extraText: 'Your sales team says they’ll log their calls later, they won’t. This AI logs every interaction, keeps records spotless, and makes sure no deal slips through.',
-      details: [
-        "Scores leads based on engagement",
-        "Automates follow-ups & lead tracking",
-        "Syncs across all platforms seamlessly",
-        "Updates & organizes CRM records instantly",
-      ],
-    },
-    {
-      title: "AI Accountant",
-      description: "Keeps the books clean—without the boring spreadsheets.",
-      extraText: 'Your team submits expenses. This AI logs, categorizes, and tracks everything so you always know where the money’s going. Ask it for a financial report? Done',
-      details: [
-        "Answers financial questions instantly",
-        "Tracks & categorizes expenses automatically",
-        "Generates invoices & monitors cash flow",
-        "Flags unusual transactions before they’re a problem",
-      ],
-    },
-    {
-      title: "AI Project Manager",
-      description: "No more ‘Where’s that file?’ or ‘What’s the deadline?’",
-      extraText: 'This AI keeps projects moving, sends reminders before it’s too late, and makes sure work actually gets done. No excuses.',
-      details: [
-        "Adjusts priorities based on workload",
-        "Assigns & tracks tasks automatically",
-        "Generates instant progress reports",
-        "Monitors deadlines & sends reminders",
-      ],
-    },
-    {
-      title: "AI Client Success Manager",
-      description: "Because keeping clients happy is cheaper than finding new ones.",
-      extraText: 'It remembers every client, follows up at the perfect moment, and makes sure no one feels ignored—because happy clients mean repeat business.',
-      details: [
-        "Automates follow-ups & upsells",
-        "Tracks customer health & retention",
-        "Personalizes client interactions automatically",
-        "Detects sentiment & adapts in real-time",
-      ],
-    },
-    {
-      title: "AI HR Manager",
-      description: "Hiring, onboarding, and managing—without the HR headaches.",
-      extraText: 'This AI screens candidates, schedules interviews, and even answers employee questions before they have to ask twice. No more ‘Who do I talk to about PTO?’',
-      details: [
-        "Answers HR questions instantly",
-        "Automates onboarding for new hires",
-        "Tracks leave requests & employee data",
-        "Screens job applicants & schedules interviews",
-      ],
-    },
-
-  ];
+  {
+    title: "AI Sales Rep",
+    description: "Faster. Smarter. Always closing.",
+    extraText: "Never tired, never distracted, never losing a deal.",
+    details: [
+      "Instant lead response (no more waiting hours)",
+      "Built-in objection handling (no fumbling)",
+      "Lead scoring in real-time (chases the hottest prospects first)",
+      "24/7 selling (never tired, distracted, or emotional)"
+    ],
+  },
+  {
+    title: "AI Appointment Setter",
+    description: "Meetings booked before humans even reply.",
+    extraText: "The calendar gatekeeper you wish you had sooner.",
+    details: [
+      "Instant calendar syncing across platforms and time zones",
+      "Auto-qualification before booking (no wasted meetings)",
+      "Real-time rescheduling (no manual back-and-forth)",
+      "Error-proof booking (no double-booking, no missed slots)"
+    ],
+  },
+  {
+    title: "AI CRM Manager",
+    description: "Your CRM's dream employee.",
+    extraText: "The one who actually updates the CRM.",
+    details: [
+      "Auto-logs every call, email, and touchpoint instantly",
+      "Automated follow-up sequences based on engagement",
+      "Real-time CRM syncing across tools and teams",
+      "Live deal tracking without manual updates"
+    ],
+  },
+  {
+    title: "AI Client Success Manager",
+    description: "Keeping clients happy, automatically.",
+    extraText: "Because keeping clients happy is cheaper than finding new ones.",
+    details: [
+      "Predictive sentiment analysis (detects churn risks early)",
+      "Smart follow-up scheduling based on client behavior",
+      "Personalized check-ins and upsells without prompts",
+      "Customer health tracking always updated live"
+    ],
+  }
+];
 
 
   export const testimonials = [

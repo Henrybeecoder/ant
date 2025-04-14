@@ -64,7 +64,7 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
   return (
     <div className="w-full min-h-[300vh] bg-[#0A0A0A] flex flex-row overflow-hidden relative">
       {/* Particles Background */}
-      {!isMobile && (
+      {/* {!isMobile && (
   <Particles
   className="absolute inset-0 z-0"
   quantity={isMobile ? 100 : 200}
@@ -72,7 +72,7 @@ function AppLayout({ children, showFixedBar, noHeader, title }: AppLayoutProps) 
   color={"white"}
   
 />
-      )}
+      )} */}
     
 
    
@@ -110,22 +110,32 @@ onClick={() => router.push('/')}
                 className="flex flex-row border-b lg:w-[90%]  w-[100%] lg:h-[100px] h-[70px] lg:ml-auto ml-0 border-[#181818] lg:py-8 lg:pt-8 pt-8 py-4 items-center bg-[#0A0A0A] z-50"
                 style={{ backdropFilter: isMobile ? "none" : "blur(12px)" }}
               >
-            
-                {!(pathName === '/' || pathName === '/static-ads') && (
-  <img 
-    src='/assets/icons/chevron-left.svg' 
-    alt='icon' 
-    className="lg:ml-8 ml-4 cursor-pointer"
-    onClick={() => router.push('/')}
-  />
-)}
+                   <>
+                  {isMobile ? (
+                    <>
+                    <img 
+                    src='/assets/icons/logo.svg' 
+                    alt='icon' 
+                    className="lg:ml-8 ml-4 cursor-pointer"
+                    onClick={() => router.push('/')}
+                  />
+                  </>
+                  ): (
+                    
                 <motion.p
-                  className="gambarino font-[300] text-[1.25rem] ml-6"
-                  variants={letterAnimation}
-                  custom={0}
-                >
-                  {title ? title : 'AI Agents & Automation'}
-                </motion.p>
+                className="gambarino  font-[300] text-[1.25rem] ml-6"
+                variants={letterAnimation}
+                custom={0}
+              >
+     
+                {title ? title : 'AI Agents & Automation'}
+              </motion.p>
+                  )}
+  </>
+            
+                {/* {!(pathName === '/' || pathName === '/static-ads') && (
+               
+)} */}
               </div>
             </div>
           )}

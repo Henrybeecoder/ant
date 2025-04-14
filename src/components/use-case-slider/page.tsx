@@ -109,7 +109,7 @@ const UseCase = () => {
                 <p className="mt-2">{slide.description}</p>
               </div>
               <div className="lg:text-[1rem] text-[0.8rem]">
-                <div>{slide.extraText}</div>
+                {/* <div>{slide.extraText}</div> */}
                 <div className="mt-8">
                   {slide.details.map((detail, index) => (
                     <div key={`detail-${index}`} className="flex flex-row lg:mt-5 mt-2 lg:text-[1rem] text-[0.8rem]">

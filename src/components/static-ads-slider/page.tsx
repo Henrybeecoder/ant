@@ -77,7 +77,7 @@ const StaticAdsSlider = () => {
         : 'h-[80vh]'; // Slightly less for text slides
     }
     return currentSlide < staticAds.length 
-      ? 'lg:h-[300px] h-[100px]' 
+      ? 'lg:h-[300px] h-[130px]' 
       : 'lg:h-[360px] h-[200px]';
   };
 

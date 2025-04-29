@@ -1,8 +1,17 @@
+
+
+
+
 //@ts-ignore
 //@ts-nocheck
 'use client'
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+
+interface Chapter {
+  time: number;
+  title: string;
+}
 
 interface VideoPlayerProps {
   src: string;
@@ -11,6 +20,7 @@ interface VideoPlayerProps {
   showControls?: boolean;
   className?: string;
   poster?: string;
+  chapters?: Chapter[];
 }
 
 export const VideoPlayer = ({
@@ -19,13 +29,19 @@ export const VideoPlayer = ({
   loop = false,
   showControls = false,
   poster = "/assets/images/thumbnail.png",
-  className = ""
+  className = "",
+  chapters = []
 }: VideoPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(autoPlay);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
+  const [playbackRate, setPlaybackRate] = useState<number>(1);
+  const [showSpeedOptions, setShowSpeedOptions] = useState<boolean>(false);
+  const [activeChapter, setActiveChapter] = useState<number>(0);
+  
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressInterval = useRef<NodeJS.Timeout>();
+  const speedOptions = [0.5, 1, 1.5, 2];
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -43,14 +59,30 @@ export const VideoPlayer = ({
   const handleLoadedMetadata = () => {
     if (videoRef.current) {
       setDuration(videoRef.current.duration);
+      // Set initial playback rate
+      videoRef.current.playbackRate = playbackRate;
     }
   };
+
+
 
   const startProgressTimer = () => {
     clearInterval(progressInterval.current);
     progressInterval.current = setInterval(() => {
       if (videoRef.current) {
         setCurrentTime(videoRef.current.currentTime);
+        
+        // Update active chapter based on current time
+        if (chapters.length > 0) {
+          const newChapter = chapters.findIndex((chap, index) => {
+            const nextChapterTime = chapters[index + 1]?.time || duration;
+            return videoRef.current!.currentTime >= chap.time && 
+                   videoRef.current!.currentTime < nextChapterTime;
+          });
+          if (newChapter !== -1 && newChapter !== activeChapter) {
+            setActiveChapter(newChapter);
+          }
+        }
       }
     }, 100);
   };
@@ -61,6 +93,22 @@ export const VideoPlayer = ({
     if (videoRef.current) {
       videoRef.current.currentTime = newTime;
     }
+  };
+
+  const handleChapterClick = (chapterIndex: number) => {
+    if (videoRef.current && chapters[chapterIndex]) {
+      videoRef.current.currentTime = chapters[chapterIndex].time;
+      setCurrentTime(chapters[chapterIndex].time);
+      setActiveChapter(chapterIndex);
+    }
+  };
+
+  const changePlaybackRate = (rate: number) => {
+    setPlaybackRate(rate);
+    if (videoRef.current) {
+      videoRef.current.playbackRate = rate;
+    }
+    setShowSpeedOptions(false);
   };
 
   const formatTime = (seconds: number): string => {
@@ -128,21 +176,88 @@ export const VideoPlayer = ({
 
       {/* Bottom controls bar */}
       {showControls && (
-        <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-black/80 to-transparent">
-          <div className="w-full h-full px-4 flex flex-col justify-center">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent">
+          {/* Chapter progress bar (if chapters exist) */}
+          {/* {chapters.length > 0 && (
+            <div className="w-full h-1.5 flex bg-gray-600/50">
+              {chapters.map((chapter, index) => {
+                const nextChapterTime = chapters[index + 1]?.time || duration;
+                const chapterDuration = nextChapterTime - chapter.time;
+                const chapterPercentage = (chapterDuration / duration) * 100;
+                
+                return (
+                  <div 
+                    key={index}
+                    className={`h-full ${index === activeChapter ? 'bg-red-500' : 'bg-gray-400'}`}
+                    style={{ width: `${chapterPercentage}%` }}
+                    onClick={() => handleChapterClick(index)}
+                  />
+                );
+              })}
+            </div>
+          )} */}
+          
+          {/* Time progress bar */}
+          <div className="w-full h-2 mb-6 ">
             <input
               type="range"
               min="0"
               max={duration || 100}
               value={currentTime}
               onChange={handleProgressChange}
-              className="w-full h-1 mb-1 bg-gray-400 rounded-lg appearance-none cursor-pointer"
+              className="w-full h-1.5 mt-[-100px] appearance-none bg-transparent cursor-pointer"
+              style={{
+                background: `linear-gradient(to right, #919191 ${(currentTime / (duration || 1)) * 100}%, transparent 0%)`
+              }}
             />
-            <div className="flex items-center justify-between w-full">
+          </div>
+          
+          <div className="w-full px-4 pb-2 flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              {/* <button onClick={togglePlay} className="text-white">
+                {isPlaying ? (
+                  <Image src="/assets/icons/pause-icon.svg" alt="Pause" width={16} height={16} />
+                ) : (
+                  <Image src="/assets/icons/play-icon.svg" alt="Play" width={16} height={16} />
+                )}
+              </button> */}
+              
+              <div className="relative">
+                <button 
+                  onClick={() => setShowSpeedOptions(!showSpeedOptions)}
+                  className="text-white text-xs px-2 py-1 bg-gray-700 rounded"
+                >
+                  {playbackRate}x
+                </button>
+                
+                {showSpeedOptions && (
+                  <div className="absolute bottom-full left-0 mb-2 bg-gray-800 rounded shadow-lg z-10">
+                    {speedOptions.map((rate) => (
+                      <button
+                        key={rate}
+                        onClick={() => changePlaybackRate(rate)}
+                        className={`block w-full text-left px-3 py-1 text-white text-xs hover:bg-gray-700 ${
+                          rate === playbackRate ? 'bg-[#FF4733]' : ''
+                        }`}
+                      >
+                        {rate}x
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
               <span className="text-white text-xs">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
             </div>
+            
+            {/* Chapter title display */}
+            {chapters.length > 0 && chapters[activeChapter] && (
+              <span className="text-white text-xs truncate max-w-[150px]">
+                {chapters[activeChapter].title}
+              </span>
+            )}
           </div>
         </div>
       )}

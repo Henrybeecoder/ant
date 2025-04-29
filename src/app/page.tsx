@@ -268,9 +268,9 @@ export default function Home() {
           <div ref={section4Ref}>
             <WhoWeWorkWith />
           </div>
-          <div ref={section5Ref}>
+          {/* <div ref={section5Ref}>
             <VennDiagram />
-          </div>
+          </div> */}
           <div ref={section6Ref}>
             <ProcessSection />
           </div>
